@@ -26,6 +26,7 @@ public:
 	int move_next();
 
 
+
 	vector<words> wdlist;
 	string filename;
 	int word_number;
