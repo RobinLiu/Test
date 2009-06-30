@@ -1,0 +1,7 @@
+ccc	2	
+fff 4
+ddd 3
+aaa 1
+ggg 8
+bbb 9
+ppp 1
