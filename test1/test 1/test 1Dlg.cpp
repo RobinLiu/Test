@@ -11,7 +11,7 @@
 #define new DEBUG_NEW
 #endif
 
-word_list wdlist;
+Cword_list wdlist;
 
 // CAboutDlg dialog used for App About
 
@@ -162,7 +162,7 @@ void Ctest1Dlg::OnBnClickedButton1()
 	//IDC_STATIC
 	
 	//SetDlgItemText(IDC_STATIC,"Hello, world!");
-	if(wdlist.word_number)
+	if(wdlist.number_of_word)
 	{
 		SetDlgItemText(IDC_STATIC,wdlist.show_word().c_str());
 		if(wdlist.move_next())

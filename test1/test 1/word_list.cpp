@@ -12,54 +12,77 @@
 #include<cctype>
 #include<set>
 
-word_list::~word_list(void)
+#include "word_list.h"
+#include "Words.h"
+
+bool ccompare(const CWord& lhs, const CWord& rhs)
 {
+	return lhs.repeat_times>rhs.repeat_times;
 }
 
-int word_list::load_file(const string &filepath)
+bool bcompare(const CWord& lhs, const CWord& rhs)
 {
-	filename = filepath;
+	return lhs.word>rhs.word;
+}
 
-	fstream infile(filename.c_str());
+Cword_list::~Cword_list()
+{
+
+}
+
+CWord& Cword_list::get_word()
+{
+
+	return (*iter++);
+
+}
+
+
+int Cword_list::load_file(const string &filepath)
+{
+	file_name = filepath;
+
+	fstream infile(file_name.c_str());
 	if(!infile)
 	{
-		cout<<"Open file "<<filename<<" failed"<<endl;
+		cout<<"Open file "<<file_name<<" failed"<<endl;
 		return -1;
 	}
 	string line;
 	string word;
-
+	
+	word_list.clear();
 	while(!infile.eof())
 	{
 		getline(infile, line);
 		istringstream stream1(line);
 		while(stream1>>word)
 		{
-			words wd(word);
-			wdlist.push_back(word);
+			CWord wd(word);
+			word_list.push_back(word);
 		}
-	
+
 	}
-	word_number = wdlist.size();
-	iter = wdlist.begin();
+	number_of_word = word_list.size();
+	iter = word_list.begin();
 	infile.close();
 	return 0;
 }
 
-string word_list::show_first_word()
+string Cword_list::show_first_word()
 {
-	if(wdlist.size())
+	if(word_list.size())
 	{
-		return wdlist.front().word;
+		return word_list.front().word;
 	}
 	else
 		return string("");
 }
 
-string word_list::show_word()
+string Cword_list::show_word()
 {
 
-	if(iter != wdlist.end())
+	if(iter != word_list.end())
 	{
 		return (*iter).word;
 	}
@@ -68,9 +91,9 @@ string word_list::show_word()
 	return 0;
 }
 
-int word_list::move_next()
+int Cword_list::move_next()
 {
-	if(iter != wdlist.end())
+	if(iter != word_list.end())
 	{
 			++iter;
 			return 0;
@@ -79,5 +102,4 @@ int word_list::move_next()
 	{
 		return -1;
 	}
-
 }
