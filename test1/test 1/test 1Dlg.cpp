@@ -47,7 +47,18 @@ END_MESSAGE_MAP()
 // Ctest1Dlg dialog
 
 
-
+/*BOOL Ctest1Dlg::PreTranslateMessage(MSG* pMsg)
+{
+	if(pMsg->message == WM_KEDOWN)
+	{
+		switch(pMsg->wParam)
+			case 48://"0"
+				AfxMessageBox("0");
+				return TRUE;
+	}
+	return CDialog::PreTranslateMessage(pMsg);
+}
+*/
 
 Ctest1Dlg::Ctest1Dlg(CWnd* pParent /*=NULL*/)
 	: CDialog(Ctest1Dlg::IDD, pParent)
@@ -69,10 +80,27 @@ BEGIN_MESSAGE_MAP(Ctest1Dlg, CDialog)
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_BUTTON1, &Ctest1Dlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &Ctest1Dlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDOK, &Ctest1Dlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BUTTON3, &Ctest1Dlg::OnBnClickedButton3)
+	ON_COMMAND_RANGE(IDC_STATIC,IDC_STATIC,OnNumberKey)
+	ON_COMMAND_RANGE(IDC_STATIC,IDC_STATIC,OnOperationKey)
 END_MESSAGE_MAP()
 
 
 // Ctest1Dlg message handlers
+void Ctest1Dlg::OnNumberKey(UINT nID)
+{
+	//switch(nID)
+	AfxMessageBox("0");
+
+}
+
+void Ctest1Dlg::OnOperationKey(UINT nID)
+{
+	//switch(nID)
+	AfxMessageBox("1");
+
+}
 
 BOOL Ctest1Dlg::OnInitDialog()
 {
@@ -184,11 +212,40 @@ void Ctest1Dlg::OnBnClickedButton2()
 	if (Open.DoModal() == IDOK)
 	{
 		strFilePath = Open.GetPathName();
-		SetDlgItemText (IDC_EDIT1, strFilePath);
+		SetDlgItemText(IDC_EDIT1, strFilePath);
 	}
 
 	if(wdlist.load_file(strFilePath.GetBuffer()))
 	{
 		MessageBox("Load file errro!");
+	}
+}
+
+void Ctest1Dlg::OnBnClickedOk()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	
+	OnOK();
+}
+
+void Ctest1Dlg::OnBnClickedButton3()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CString strFilePath;
+	GetDlgItemText(IDC_EDIT1, strFilePath);
+	if(strFilePath.IsEmpty())
+	{
+		MessageBox("No data to save!");
+		return;
+	}
+	CString FileName = strFilePath.Left(strFilePath.GetLength()-4);
+	FileName += "_new.txt";
+	if(wdlist.save_to_file(FileName.GetBuffer()))
+	{
+		MessageBox("Save data failed!");
+	}
+	else
+	{
+		MessageBox("Data saved!");
 	}
 }

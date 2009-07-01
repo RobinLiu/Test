@@ -15,15 +15,6 @@
 #include "word_list.h"
 #include "Words.h"
 
-bool ccompare(const CWord& lhs, const CWord& rhs)
-{
-	return lhs.repeat_times>rhs.repeat_times;
-}
-
-bool bcompare(const CWord& lhs, const CWord& rhs)
-{
-	return lhs.word>rhs.word;
-}
 
 Cword_list::~Cword_list()
 {
@@ -102,4 +93,26 @@ int Cword_list::move_next()
 	{
 		return -1;
 	}
+}
+int Cword_list::save_to_file(const string &desfile)
+{
+	ofstream outfile(desfile.c_str(), ofstream::out);
+	if(!outfile)
+	{
+		cout<<"Open file "<<desfile<<" error!"<<endl;
+		return -1;
+	}
+
+	for(vector<CWord>::iterator iter = word_list.begin(); 
+		iter != word_list.end(); ++iter)
+	{
+
+		ostringstream line;
+		string spaces((30 - iter->word.length()),' ');
+		line<<iter->word<<spaces<<iter->repeat_times;
+		outfile<<line.str()<<endl;
+	}
+
+	outfile.close();
+	return 0;
 }

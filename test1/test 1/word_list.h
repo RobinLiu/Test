@@ -10,9 +10,6 @@ using namespace std;
 
 #include "words.h"
 
-bool ccompare(const CWord& lhs, const CWord& rhs);
-bool bcompare(const CWord& lhs, const CWord& rhs);
-
 enum KEY {BYSTR,BYNUM,BYSTRR,BYNUMR};
 
 class GT
@@ -63,6 +60,7 @@ public:
 	~Cword_list(void);
 
 	int load_file(const string &filename);
+	int save_to_file(const string &desfile);
 
 	string show_word();
 	string show_first_word();

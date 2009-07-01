@@ -34,4 +34,8 @@ public:
 	afx_msg void OnBnClickedButton1();
 	CString m_infileStr;
 	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedOk();
+	afx_msg void OnBnClickedButton3();
+	afx_msg void OnNumberKey(UINT nID);
+	afx_msg void OnOperationKey(UINT nID); 
 };
