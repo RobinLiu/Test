@@ -17,6 +17,41 @@ using namespace std;
 
 bool ccompare(const CWord& lhs, const CWord& rhs);
 bool bcompare(const CWord& lhs, const CWord& rhs);
+
+enum KEY {BYSTR,BYNUM,BYSTRR,BYNUMR};
+
+class GT
+{
+public:
+	GT(KEY skey):key(skey){};
+	bool operator()(const CWord& lhs, const CWord& rhs) const
+	{
+		switch(key)
+		{
+		case BYSTR:
+			return lhs.word < rhs.word;
+			break;
+
+		case BYNUM:
+			return lhs.repeat_times < rhs.repeat_times;
+			break;
+
+		case BYSTRR:
+			return lhs.word > rhs.word;
+			break;
+
+		case BYNUMR:
+			return lhs.repeat_times > rhs.repeat_times;
+			break;
+
+		default:
+			return false;
+		}
+	}
+
+	KEY key;
+};
+
 class Cword_list
 {
 public:
@@ -44,9 +79,9 @@ public:
 	int number_of_word;
 	CWord& get_word();
 
-	void sort_mlist()
+	void sort_mlist(KEY key)
 	{
-		sort(word_list.begin(), word_list.end(), bcompare);
+		sort(word_list.begin(), word_list.end(), GT(key));
 	};
 private:
 	vector<CWord>::iterator iter;

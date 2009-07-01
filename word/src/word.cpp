@@ -118,13 +118,13 @@ void classify_word(const string& word, STATUS status)
 int main(int argc, char** argv)
 {
 	CWord word1("bbb", 2);
-	CWord word2("aaa", 1);
-	CWord word3("eee", 3);
+	CWord word2("aaa", 3);
+	CWord word3("eee", 5);
 	Cword_list wlist;
 	wlist.word_list.push_back(word1);
 	wlist.word_list.push_back(word2);
 	wlist.word_list.push_back(word3);
-	wlist.sort_mlist();
+	wlist.sort_mlist(BYSTRR);
 
 	cout<<wlist.word_list[0].word<<endl;
 	cout<<wlist.word_list[1].word<<endl;
