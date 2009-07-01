@@ -3,17 +3,18 @@
 using namespace std;
 
 #include <string>
-class words
+
+class CWord
 {
 public:
-	words(void): repeat_times(0), word(""), line_no(0), word_type(0)
+	CWord(void): repeat_times(1), word(""), line_no(0), word_type(0)
 	{};
-	words(const string &wd): repeat_times(0), word(wd), line_no(0), word_type(0)
+	CWord(const string &wd): repeat_times(1), word(wd), line_no(0), word_type(0)
 	{};
+	virtual ~CWord(void);
+	
 	long repeat_times;
 	string word;
 	long line_no;
-	int word_type;
-	virtual ~words(void);
-	
+	int word_type;	
 };

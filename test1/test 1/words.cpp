@@ -2,6 +2,6 @@
 #include "words.h"
 
 
-words::~words(void)
+words::~CWord(void)
 {
 }

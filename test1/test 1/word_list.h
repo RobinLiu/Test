@@ -5,31 +5,31 @@ using namespace std;
 #include<string>
 
 #include "words.h"
-class word_list
+class Cword_list
 {
 public:
-	word_list(void) :filename(""),word_number(0)
+	Cword_list(void) :file_name(""),number_of_word(0)
 	{
-		wdlist.clear();
-		iter = wdlist.begin();
+		word_list.clear();
+		iter = word_list.begin();
 	};
-	word_list(const string &filepath) :filename(filepath),word_number(0)
+	Cword_list(const string &filepath) :file_name(filepath),number_of_word(0)
 	{
-		wdlist.clear();
-		iter = wdlist.begin();
+		word_list.clear();
+		iter = word_list.begin();
 	};
-	~word_list(void);
+	~Cword_list(void);
 	
 	int load_file(const string &filename);
 	string show_word();
 	string show_first_word();
 	int move_next();
+	void sort();
 
-
-
-	vector<words> wdlist;
-	string filename;
-	int word_number;
+	vector<CWord> word_list;
+	string file_name;
+	int number_of_word;
+	
 private:
-	vector<words>::iterator iter;
+	vector<CWord>::iterator iter;
 };
