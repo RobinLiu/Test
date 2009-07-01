@@ -6,11 +6,11 @@ CPPFLAGS += -I $(CPPUTEST)/include
 LDLIBS += $(CPPUTEST)/lib/libCppUTest.a -lstdc++
 CXXFLAGS +=	-O0 -g3 -Wall -c -fmessage-length=0
 
-SRCOBJ = ./src/word.o ./src/help.o
+SRCOBJ = ./src/word.o ./src/help.o src/CWord.o src/Cword_list.o
 TESTOBJ = ./tst/test.o ./tst/main.o ./src/help.o
 
 all: $(TARGET) $(TEST)
-	./$(TEST) -o junit 
+	./$(TEST)  
 
 $(TEST): $(TESTOBJ)
 	$(CXX) $(CPPFLAGS) -o $(TEST) $(TESTOBJ) $(LDLIBS)

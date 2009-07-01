@@ -1,6 +1,6 @@
 CXXFLAGS =	-O0 -g3 -Wall -c -fmessage-length=0
 
-OBJS =		help.o word.o
+OBJS =		help.o word.o CWord.o Cword_list.o
 
 LIBS =
 
