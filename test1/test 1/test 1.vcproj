@@ -214,6 +214,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\VocabularyBase.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\word_list.cpp"
 				>
 			</File>
@@ -245,6 +249,10 @@
 			</File>
 			<File
 				RelativePath=".\test 1Dlg.h"
+				>
+			</File>
+			<File
+				RelativePath=".\VocabularyBase.h"
 				>
 			</File>
 			<File

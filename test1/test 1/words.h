@@ -26,7 +26,7 @@ public:
 	virtual ~CWord(void){};
 	bool is_same_word(CWord& other)
 	{
-		return this.word == other.word;
+		return (this->word == other.word);
 	}
 	bool operator==(const CWord&) const
 	{

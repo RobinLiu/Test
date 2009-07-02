@@ -16,79 +16,32 @@
 #include "Words.h"
 
 
-Cword_list::~Cword_list()
-{
-
-}
-
-CWord& Cword_list::get_word()
-{
-
-	return (*iter++);
-
-}
-
-string Cword_list::show_first_word()
-{
-	if(word_list.size())
-	{
-		return word_list.front().word;
-	}
-	else
-		return string("");
-}
-
-string Cword_list::show_word()
-{
-
-	if(iter != word_list.end())
-	{
-		return (*iter).word;
-	}
-	else
-		return string("");
-	return 0;
-}
-
-int Cword_list::move_next()
-{
-	if(iter != word_list.end())
-	{
-			++iter;
-			return 0;
-	}
-	else
-	{
-		return -1;
-	}
-}
 
 void Cword_list::parse_line_history(const string& line)
 {
-	
+	string word;
+	int times;
 	istringstream stream1(line);
 	if(stream1>>word>>times)
 	{
 		CWord wd(word,times);
-		word_list.push_back(word);
+		word_list.push_back(wd);
 	}
 }
 
 void Cword_list::parse_line_new(const string& line)
 {
-	
+	string word;
 	istringstream stream1(line);
 	while(stream1>>word)
 	{
-		CWord wd(word,times);
-		word_list.push_back(word);
+		CWord wd(word);
+		word_list.push_back(wd);
 	}
 }
 
 
-
-
-int Cword_list::load_file_func(const string& filename, Func func)
+int Cword_list::load_file_func(const string& filename, Linefunc func)
 {
 	fstream infile(filename.c_str());
 	if(!infile)
@@ -104,10 +57,9 @@ int Cword_list::load_file_func(const string& filename, Func func)
 	while(!infile.eof())
 	{
 		getline(infile, line);
-		func(line);
+		(this->*func)(line);
 	}
-	number_of_word = word_list.size();
-	iter = word_list.begin();
+
 	infile.close();
 	return 0;
 
@@ -115,12 +67,12 @@ int Cword_list::load_file_func(const string& filename, Func func)
 
 int Cword_list::load_word_file(const string &filepath)
 {
-	return load_file_func(filepath, parse_line_new);
+	return load_file_func(filepath, &Cword_list::parse_line_new);
 }
 
-int Cword_list::load_history_file(const string &hisfile)
+int Cword_list::init_from_file(const string &hisfile)
 {
-	return load_file_func(hisfile, parse_line_history);
+	return load_file_func(hisfile, &Cword_list::parse_line_history);
 }
 
 int Cword_list::save_to_file(const string &desfile)

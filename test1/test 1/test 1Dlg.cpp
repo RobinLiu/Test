@@ -190,7 +190,7 @@ void Ctest1Dlg::OnBnClickedButton1()
 	//IDC_STATIC
 	
 	//SetDlgItemText(IDC_STATIC,"Hello, world!");
-	if(wdlist.number_of_word)
+	/*if(wdlist.number_of_word)
 	{
 		SetDlgItemText(IDC_STATIC,wdlist.show_word().c_str());
 		if(wdlist.move_next())
@@ -199,7 +199,7 @@ void Ctest1Dlg::OnBnClickedButton1()
 			return;
 		}
 		
-	}
+	}*/
 		//show_word()
 
 }
@@ -215,10 +215,10 @@ void Ctest1Dlg::OnBnClickedButton2()
 		SetDlgItemText(IDC_EDIT1, strFilePath);
 	}
 
-	if(wdlist.load_file(strFilePath.GetBuffer()))
+/*	if(wdlist.load_file(strFilePath.GetBuffer()))
 	{
 		MessageBox("Load file errro!");
-	}
+	}*/
 }
 
 void Ctest1Dlg::OnBnClickedOk()
@@ -240,12 +240,12 @@ void Ctest1Dlg::OnBnClickedButton3()
 	}
 	CString FileName = strFilePath.Left(strFilePath.GetLength()-4);
 	FileName += "_new.txt";
-	if(wdlist.save_to_file(FileName.GetBuffer()))
+/*	if(wdlist.save_to_file(FileName.GetBuffer()))
 	{
 		MessageBox("Save data failed!");
 	}
 	else
 	{
 		MessageBox("Data saved!");
-	}
+	}*/
 }
