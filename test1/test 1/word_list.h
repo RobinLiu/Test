@@ -94,9 +94,19 @@ class word_list
 public:
 	int add_word(CWord &word);
 	int del_word(CWord &word);
-	void sort_list(KEY key);
-	int get_word_num();
-	CWord& get_word_at(int pos);
+	int find_word(CWord &word);
+	void sort_list(KEY key)
+	{
+		sort(word_list.begin(), word_list.end(), GT(key));
+	};
+	size_t get_word_num()
+	{
+		return word_list.size();
+	};
+	CWord& get_word_at(int pos)
+	{
+		return word_list[pos];
+	};
 	
 private:	
 	vector<CWord> word_list;
