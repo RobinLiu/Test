@@ -11,6 +11,7 @@ using namespace std;
 #include "words.h"
 
 enum KEY {BYSTR,BYNUM,BYSTRR,BYNUMR};
+typedef void (*Linefunc)(const string& line);
 
 class GT
 {
@@ -59,7 +60,8 @@ public:
 	};
 	~Cword_list(void);
 
-	int load_file(const string &filename);
+	int load_word_file(const string &filename);
+	int load_history_file(const string &filename);
 	int save_to_file(const string &desfile);
 
 	string show_word();
@@ -78,6 +80,9 @@ public:
 	};
 private:
 	vector<CWord>::iterator iter;
+	void parse_line_history(const string& line);
+	void parse_line_new(const string& line);
+	int load_file_func(const string& filename, Func func);
 };
 
 #endif /* CWORD_LIST_H_ */
