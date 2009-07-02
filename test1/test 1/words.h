@@ -24,6 +24,14 @@ public:
 	CWord(const string &wd, int times): repeat_times(times), word(wd), line_no(0), word_type(0)
 	{};
 	virtual ~CWord(void){};
+	bool is_same_word(CWord& other)
+	{
+		return this.word == other.word;
+	}
+	bool operator==(const CWord&) const
+	{
+	
+	};
 
 	long repeat_times;
 	string word;
