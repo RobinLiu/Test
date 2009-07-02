@@ -45,6 +45,7 @@ public:
 	KEY key;
 };
 
+
 class Cword_list
 {
 public:
@@ -60,6 +61,8 @@ public:
 	};
 	~Cword_list(void);
 
+	int add_word_to_list(CWord &word);
+	int del_word_from_list(CWord &word);
 	int load_word_file(const string &filename);
 	int load_history_file(const string &filename);
 	int save_to_file(const string &desfile);
@@ -83,7 +86,37 @@ private:
 	void parse_line_history(const string& line);
 	void parse_line_new(const string& line);
 	int load_file_func(const string& filename, Func func);
+	word_helper helper;
 };
 
+class word_list
+{
+public:
+	int add_word(CWord &word);
+	int del_word(CWord &word);
+	void sort_list(KEY key);
+	int get_word_num();
+	CWord& get_word_at(int pos);
+	
+private:	
+	vector<CWord> word_list;
+};
+
+class VocabularyBase
+{
+public:
+
+	int add_know_word(const string& word);
+	int add_unknow_word(const string& word);
+	int add_noneed_word(const string& word);
+
+	int save_list_to_file(Cword_list& word_list);
+	int save_all();
+	
+private:
+	Cword_list known_list;
+	Cword_list unknow_list;
+	Cword_list noneed_list;
+};
 #endif /* CWORD_LIST_H_ */
 
