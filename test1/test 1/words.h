@@ -14,6 +14,8 @@ using namespace std;
 
 #include <string>
 
+enum WORD_STATUS {KNOWN, UNKNOWN, NONEED};
+
 class CWord
 {
 public:
@@ -27,10 +29,10 @@ public:
 	bool is_same_word(CWord& other)
 	{
 		return (this->word == other.word);
-	}
-	bool operator==(const CWord&) const
+	};
+	bool operator==(const CWord& rhs) const
 	{
-	
+		return (this->word == rhs.word);
 	};
 
 	long repeat_times;

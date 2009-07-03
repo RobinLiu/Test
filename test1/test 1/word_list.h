@@ -59,7 +59,10 @@ public:
 
 	int add_word(CWord &word);
 	int del_word(CWord &word);
-	int find_word(CWord &word);
+	int get_repeat_times(CWord &word);
+	vector<CWord>::iterator& find_word(CWord &word);
+	/*vector<CWord>::iterator& begin();
+	vector<CWord>::iterator& end();*/
 	void sort_list(KEY key)
 	{
 		sort(word_list.begin(), word_list.end(), GT(key));
@@ -76,6 +79,7 @@ public:
 
 private:	
 	vector<CWord> word_list;
+	vector<CWord>::iterator pos;
 	void parse_line_history(const string& line);
 	void parse_line_new(const string& line);
 	int load_file_func(const string& filename, Linefunc func);

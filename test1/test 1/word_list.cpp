@@ -98,3 +98,54 @@ int Cword_list::save_to_file(const string &desfile)
 	return 0;
 }
 
+int Cword_list::add_word(CWord &word)
+{
+	if(get_repeat_times(word))
+	{
+		pos->repeat_times += word.repeat_times;
+	}
+	else
+	{
+		word_list.push_back(word);
+	}
+
+	return 0;
+}
+
+int Cword_list::del_word(CWord &word)
+{
+	if(get_repeat_times(word))
+	{
+		word_list.erase(pos);
+	}
+
+	return 0;
+}
+
+
+int Cword_list::get_repeat_times(CWord &word)
+{
+	pos = find(word_list.begin(),word_list.end(),word);
+	if(pos != word_list.end())
+	{
+		return pos->repeat_times;
+	}
+	return 0;
+}
+
+vector<CWord>::iterator& Cword_list::find_word(CWord &word)
+{
+	pos = find(word_list.begin(),word_list.end(),word);
+	return pos;
+}
+
+/*
+vector<CWord>::iterator& Cword_list::begin()
+{
+	return word_list.begin();
+}
+vector<CWord>::iterator& Cword_list::end()
+{
+	return word_list.end();
+}
+*/
