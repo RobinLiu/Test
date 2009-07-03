@@ -1,4 +1,3 @@
-#pragma once
 
 /*
  * CWord.h
@@ -15,6 +14,12 @@ using namespace std;
 #include <string>
 
 enum WORD_STATUS {KNOWN, UNKNOWN, NONEED};
+enum KEY {BYSTR,BYNUM,BYSTRR,BYNUMR};
+
+#define KNOWN_FILE 		"./data/known.txt"
+#define UNKNOWN_FILE 	"./data/unknown.txt"
+#define NONEED_FILE 	"./data/noneed.txt"
+
 
 class CWord
 {

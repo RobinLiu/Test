@@ -1,4 +1,6 @@
+#ifndef __TEST__
 #include "StdAfx.h"
+#endif
 #include "word_list.h"
 #include "words.h"
 
@@ -13,7 +15,7 @@
 #include<set>
 
 #include "word_list.h"
-#include "Words.h"
+#include "words.h"
 
 
 
@@ -24,8 +26,9 @@ void Cword_list::parse_line_history(const string& line)
 	istringstream stream1(line);
 	if(stream1>>word>>times)
 	{
+		//cout<<"word: "<<word<<" times: "<<times<<endl;
 		CWord wd(word,times);
-		word_list.push_back(wd);
+		add_word(wd);
 	}
 }
 
@@ -35,8 +38,9 @@ void Cword_list::parse_line_new(const string& line)
 	istringstream stream1(line);
 	while(stream1>>word)
 	{
+		//cout<<"word: "<<word<<" loaded"<<endl;
 		CWord wd(word);
-		word_list.push_back(wd);
+		add_word(wd);
 	}
 }
 
@@ -51,7 +55,6 @@ int Cword_list::load_file_func(const string& filename, Linefunc func)
 	}
 	string line;
 	string word;
-	int times = 0;
 	
 	word_list.clear();
 	while(!infile.eof())
@@ -139,13 +142,14 @@ vector<CWord>::iterator& Cword_list::find_word(CWord &word)
 	return pos;
 }
 
-/*
 vector<CWord>::iterator& Cword_list::begin()
 {
-	return word_list.begin();
+	iterbegin = word_list.begin();
+	return iterbegin;
 }
+
 vector<CWord>::iterator& Cword_list::end()
 {
-	return word_list.end();
+	iterend = word_list.end();
+	return iterend;
 }
-*/

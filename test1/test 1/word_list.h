@@ -1,4 +1,4 @@
-#pragma once
+
 
 #ifndef CWORD_LIST_H_
 #define CWORD_LIST_H_
@@ -9,8 +9,6 @@ using namespace std;
 #include<algorithm>
 
 #include "words.h"
-
-enum KEY {BYSTR,BYNUM,BYSTRR,BYNUMR};
 
 class GT
 {
@@ -61,8 +59,12 @@ public:
 	int del_word(CWord &word);
 	int get_repeat_times(CWord &word);
 	vector<CWord>::iterator& find_word(CWord &word);
-	/*vector<CWord>::iterator& begin();
-	vector<CWord>::iterator& end();*/
+	vector<CWord>::iterator& begin();
+	vector<CWord>::iterator& end();
+	void stable_sort_list(KEY key)
+	{
+		stable_sort(word_list.begin(), word_list.end(), GT(key));
+	};
 	void sort_list(KEY key)
 	{
 		sort(word_list.begin(), word_list.end(), GT(key));
@@ -79,6 +81,8 @@ public:
 
 private:	
 	vector<CWord> word_list;
+	vector<CWord>::iterator iterbegin;
+	vector<CWord>::iterator iterend;
 	vector<CWord>::iterator pos;
 	void parse_line_history(const string& line);
 	void parse_line_new(const string& line);

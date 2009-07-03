@@ -1,12 +1,19 @@
-#pragma once
+#ifndef __VocabularyBase__
+#define __VocabularyBase__
 
 using namespace std;
+
 #include "word_list.h"
+#include<iostream>
+
 class VocabularyBase
 {
 public:
 	VocabularyBase(void);
 	virtual ~VocabularyBase(void);
+
+	int init_base();
+	int load_word_file(const string& filename);
 
 	int add_know_word(CWord& word);
 	int add_unknow_word(CWord& word);
@@ -16,9 +23,20 @@ public:
 
 	int save_list_to_file(Cword_list& word_list);
 	int save_all();
+
+	bool is_word_in_base(CWord& word);
+	void sort_list(KEY key);
+	void stable_sort_list(KEY key);
+	void filter_known_words();
+	void print_new_words();
+	
 	
 private:
 	Cword_list known_list;
 	Cword_list unknow_list;
 	Cword_list noneed_list;
+	Cword_list new_list;
 };
+
+#endif
+
