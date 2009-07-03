@@ -4,15 +4,16 @@
 #include "stdafx.h"
 #include "test 1.h"
 #include "test 1Dlg.h"
-#include "words.h"
-#include"word_list.h"
+#include "VocabularyBase.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
-Cword_list wdlist;
 
+VocabularyBase vbase;
+int word_index = 0;
 // CAboutDlg dialog used for App About
 
 class CAboutDlg : public CDialog
@@ -130,7 +131,11 @@ BOOL Ctest1Dlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
-
+	if(vbase.init_base())
+	{
+		MessageBox("Init history file error!");
+		return FALSE;
+	}
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -188,7 +193,15 @@ void Ctest1Dlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	//IDC_STATIC
-	
+	int num = vbase.get_number_of_new();
+	if( word_index < num )
+	{
+		SetDlgItemText(IDC_STATIC,vbase.get_new_word_at(word_index++).word.c_str());
+	}
+	else
+	{
+		MessageBox("All word has been displayed!");
+	}
 	//SetDlgItemText(IDC_STATIC,"Hello, world!");
 	/*if(wdlist.number_of_word)
 	{
@@ -215,10 +228,10 @@ void Ctest1Dlg::OnBnClickedButton2()
 		SetDlgItemText(IDC_EDIT1, strFilePath);
 	}
 
-/*	if(wdlist.load_file(strFilePath.GetBuffer()))
+	if(vbase.load_word_file(strFilePath.GetBuffer()))
 	{
-		MessageBox("Load file errro!");
-	}*/
+		MessageBox("Load word file error!");
+	}
 }
 
 void Ctest1Dlg::OnBnClickedOk()
@@ -238,8 +251,15 @@ void Ctest1Dlg::OnBnClickedButton3()
 		MessageBox("No data to save!");
 		return;
 	}
-	CString FileName = strFilePath.Left(strFilePath.GetLength()-4);
-	FileName += "_new.txt";
+	//CString FileName = strFilePath.Left(strFilePath.GetLength()-4);
+	//FileName += "_new.txt";
+	
+	vbase.sort_list(BYSTR);
+	vbase.stable_sort_list(BYNUMR);
+	if(vbase.save_all())
+	{
+		MessageBox("Save data failed!");
+	}
 /*	if(wdlist.save_to_file(FileName.GetBuffer()))
 	{
 		MessageBox("Save data failed!");

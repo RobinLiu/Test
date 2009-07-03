@@ -18,6 +18,7 @@ public:
 	int add_know_word(CWord& word);
 	int add_unknow_word(CWord& word);
 	int add_noneed_word(CWord& word);
+	void update_repeat_times(CWord& word);
 
 	void clssify_word(CWord& word,WORD_STATUS status);
 
@@ -29,6 +30,14 @@ public:
 	void stable_sort_list(KEY key);
 	void filter_known_words();
 	void print_new_words();
+	int get_number_of_new()
+	{
+		return new_list.get_word_num();
+	}
+	CWord& get_new_word_at(int pos)
+	{
+		return new_list.get_word_at(pos);
+	}
 	
 	
 private:

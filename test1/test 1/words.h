@@ -39,7 +39,17 @@ public:
 	{
 		return (this->word == rhs.word);
 	};
-
+	CWord& operator=(const CWord& rhs)
+	{
+		if(this != &rhs)
+		{
+			repeat_times = rhs.repeat_times;
+			word = rhs.word;
+			line_no = rhs.line_no;
+			word_type = rhs.word_type;
+		}
+		return *this;
+	}
 	long repeat_times;
 	string word;
 	long line_no;

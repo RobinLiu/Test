@@ -1,6 +1,7 @@
-#ifndef __TEST__
+//#if __LINUX__TEST__
 #include "StdAfx.h"
-#endif
+//#endif
+
 #include "word_list.h"
 #include "words.h"
 
