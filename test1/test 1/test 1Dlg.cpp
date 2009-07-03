@@ -202,19 +202,6 @@ void Ctest1Dlg::OnBnClickedButton1()
 	{
 		MessageBox("All word has been displayed!");
 	}
-	//SetDlgItemText(IDC_STATIC,"Hello, world!");
-	/*if(wdlist.number_of_word)
-	{
-		SetDlgItemText(IDC_STATIC,wdlist.show_word().c_str());
-		if(wdlist.move_next())
-		{
-			MessageBox("All words have been showed!");
-			return;
-		}
-		
-	}*/
-		//show_word()
-
 }
 
 void Ctest1Dlg::OnBnClickedButton2()
@@ -260,12 +247,8 @@ void Ctest1Dlg::OnBnClickedButton3()
 	{
 		MessageBox("Save data failed!");
 	}
-/*	if(wdlist.save_to_file(FileName.GetBuffer()))
-	{
-		MessageBox("Save data failed!");
-	}
 	else
 	{
-		MessageBox("Data saved!");
-	}*/
+		MessageBox("All word has been displayed!");
+	}
 }

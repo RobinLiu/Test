@@ -301,5 +301,3 @@ void VocabularyBase::update_repeat_times(CWord& word)
 			new_list.add_word(word);
 		}		
 }
-
-
