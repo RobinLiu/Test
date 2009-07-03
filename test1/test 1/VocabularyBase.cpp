@@ -103,17 +103,30 @@ void VocabularyBase::stable_sort_list(KEY key)
 	noneed_list.stable_sort_list(key);
 }
 
+void VocabularyBase::filter_short_words()
+{
+
+}
+
+
 void VocabularyBase::filter_known_words()
 {
 	//if(known_list)
 	vector<CWord>::iterator iter = new_list.word_list.begin();
 	while(iter != new_list.word_list.end())
 	{
-		if(known_list.get_repeat_times(*iter)
+		//delete word who's length is not longer than 2
+		if(iter->word.length()<=2)
+		{
+			iter = new_list.word_list.erase(iter);
+			continue;
+		}
+		else if(known_list.get_repeat_times(*iter)
 			||noneed_list.get_repeat_times(*iter))
 		{
 			cout<<"word "<<iter->word<<" has been filtered"<<endl;
 			iter = new_list.word_list.erase(iter);
+			continue;
 		}
 		else
 		{
@@ -130,6 +143,8 @@ void VocabularyBase::print_new_words()
 	{
 		cout<<"word: "<<iter->word<<" repeat "<<iter->repeat_times<<endl;
 	}
+
+	cout<<"There are "<<new_list.get_word_num()<<" new words"<<endl;
 }
 
 
