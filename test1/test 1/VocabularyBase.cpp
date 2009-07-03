@@ -106,14 +106,14 @@ void VocabularyBase::stable_sort_list(KEY key)
 void VocabularyBase::filter_known_words()
 {
 	//if(known_list)
-	vector<CWord>::iterator iter = new_list.begin();
-	while(iter != new_list.end())
+	vector<CWord>::iterator iter = new_list.word_list.begin();
+	while(iter != new_list.word_list.end())
 	{
 		if(known_list.get_repeat_times(*iter)
 			||noneed_list.get_repeat_times(*iter))
 		{
 			cout<<"word "<<iter->word<<" has been filtered"<<endl;
-			new_list.del_word(*iter++);
+			iter = new_list.word_list.erase(iter);
 		}
 		else
 		{

@@ -17,8 +17,7 @@ int main()
 	{
 		cout<<"load word file error"<<endl;	
 	}
-	//cout<<"load word file ok"<<endl;	
-	vbase.print_new_words();
+
 	vbase.filter_known_words();
 	vbase.print_new_words();
 	/*CWord wd("aaaaaaaaaaaaaaaaaaaaa");

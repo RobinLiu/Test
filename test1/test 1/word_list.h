@@ -79,8 +79,9 @@ public:
 	};
 	
 
-private:	
 	vector<CWord> word_list;
+private:	
+	
 	vector<CWord>::iterator iterbegin;
 	vector<CWord>::iterator iterend;
 	vector<CWord>::iterator pos;
