@@ -47,8 +47,8 @@ END_MESSAGE_MAP()
 
 // Ctest1Dlg dialog
 
-
-/*BOOL Ctest1Dlg::PreTranslateMessage(MSG* pMsg)
+/*
+BOOL Ctest1Dlg::PreTranslateMessage(MSG* pMsg)
 {
 	if(pMsg->message == WM_KEDOWN)
 	{
@@ -252,3 +252,13 @@ void Ctest1Dlg::OnBnClickedButton3()
 		MessageBox("All word has been displayed!");
 	}
 }
+
+/*
+void Ctest1Dlg::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 
+{
+	if (char(nChar) == 'X')
+		OnOK();
+
+	CDialog::OnKeyDown(nChar, nRepCnt, nFlags);
+}
+*/
