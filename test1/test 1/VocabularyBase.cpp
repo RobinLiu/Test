@@ -260,8 +260,12 @@ void VocabularyBase::filter_known_words()
 						update_repeat_times(wd);
 						//cout<<"word "<<iter->word<<" repeat "<<wd.repeat_times<<endl;
 						iter = new_list.word_list.erase(iter);
-					}
-					break;
+                        break;
+					}	
+                    else
+                    {
+                        ++iter;
+                    }
 				}
 			}
 			continue;
