@@ -106,7 +106,7 @@ Ctest1Dlg::Ctest1Dlg(CWnd* pParent /*=NULL*/)
 void Ctest1Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EDIT1, m_infileStr);
+	//DDX_Text(pDX, IDC_EDIT1, m_infileStr);
 }
 
 BEGIN_MESSAGE_MAP(Ctest1Dlg, CDialog)
@@ -158,6 +158,24 @@ BOOL Ctest1Dlg::OnInitDialog()
 		return FALSE;
 	}
     //((Ctest1App*)AfxGetApp())->m_hwndDlg=m_hWnd;
+    /*if(CreateDirectory("./ttttt"))
+    {
+        AfxMessageBox("OK");
+    }
+    else
+    {
+        DWORD ret = GetLastError();
+        if(ERROR_ALREADY_EXISTS == ret)
+        {
+            AfxMessageBox("exist");
+        }
+        else if(ERROR_PATH_NOT_FOUND == ret)
+        {
+            AfxMessageBox("Path not right");
+        }
+
+    }*/
+         
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -235,6 +253,7 @@ void Ctest1Dlg::OnBnClickedButton2()
 	{
 		strFilePath = Open.GetPathName();
 		SetDlgItemText(IDC_EDIT1, strFilePath);
+        SetDlgItemText(IDC_WORD_PATH, strFilePath);    
 	}
 
 	if(vbase.load_word_file(strFilePath.GetBuffer()))
@@ -266,7 +285,9 @@ void Ctest1Dlg::OnBnClickedButton3()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	CString strFilePath;
-	GetDlgItemText(IDC_EDIT1, strFilePath);
+    
+	//GetDlgItemText(IDC_EDIT1, strFilePath);
+    GetDlgItemText(IDC_WORD_PATH, strFilePath);
 	if(strFilePath.IsEmpty())
 	{
 		MessageBox("No data to save!");
