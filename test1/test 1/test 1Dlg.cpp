@@ -47,7 +47,7 @@ END_MESSAGE_MAP()
 
 // Ctest1Dlg dialog
 
-/*
+#if 0
 BOOL Ctest1Dlg::PreTranslateMessage(MSG* pMsg)
 {
 	if(pMsg->message == WM_KEDOWN)
@@ -59,7 +59,7 @@ BOOL Ctest1Dlg::PreTranslateMessage(MSG* pMsg)
 	}
 	return CDialog::PreTranslateMessage(pMsg);
 }
-*/
+#endif
 
 Ctest1Dlg::Ctest1Dlg(CWnd* pParent /*=NULL*/)
 	: CDialog(Ctest1Dlg::IDD, pParent)
