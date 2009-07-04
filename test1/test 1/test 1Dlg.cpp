@@ -14,7 +14,19 @@
 
 VocabularyBase vbase;
 int word_index = 0;
+//Ctest1Dlg dlg;
 // CAboutDlg dialog used for App About
+#if 0
+Ctest1Dlg* Ctest1Dlg::__instance = 0;
+
+Ctest1Dlg* Ctest1Dlg::Instance() {
+    /*if (__instance == 0) {
+        __instance = new Ctest1Dlg;
+    }*/
+    static Ctest1Dlg dlg;
+    return &dlg;
+}
+#endif 
 
 class CAboutDlg : public CDialog
 {
@@ -47,16 +59,39 @@ END_MESSAGE_MAP()
 
 // Ctest1Dlg dialog
 
-#if 0
+#if 1
 BOOL Ctest1Dlg::PreTranslateMessage(MSG* pMsg)
 {
-	if(pMsg->message == WM_KEDOWN)
-	{
-		switch(pMsg->wParam)
-			case 48://"0"
-				AfxMessageBox("0");
-				return TRUE;
-	}
+    if(pMsg->message==WM_CHAR)
+    {
+        int num = vbase.get_number_of_new();
+        if( word_index < num )
+        {
+            switch (pMsg->wParam) 
+            {
+                case 'j':
+                    vbase.clssify_word(vbase.get_new_word_at(word_index),KNOWN);
+                    OnBnClickedButton1();
+                    break;
+                case 'k':
+                    vbase.clssify_word(vbase.get_new_word_at(word_index),UNKNOWN);
+                    OnBnClickedButton1();    
+                    break;
+                case 'l':
+                    vbase.clssify_word(vbase.get_new_word_at(word_index),NONEED);
+                    OnBnClickedButton1();    
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            AfxMessageBox("All words have been displayed!");
+        }
+
+    }
+
 	return CDialog::PreTranslateMessage(pMsg);
 }
 #endif
@@ -83,25 +118,11 @@ BEGIN_MESSAGE_MAP(Ctest1Dlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, &Ctest1Dlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDOK, &Ctest1Dlg::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BUTTON3, &Ctest1Dlg::OnBnClickedButton3)
-	ON_COMMAND_RANGE(IDC_STATIC,IDC_STATIC,OnNumberKey)
-	ON_COMMAND_RANGE(IDC_STATIC,IDC_STATIC,OnOperationKey)
+//	ON_COMMAND_RANGE(IDC_STATIC,IDC_STATIC,OnNumberKey)
+//	ON_COMMAND_RANGE(IDC_STATIC,IDC_STATIC,OnOperationKey)
 END_MESSAGE_MAP()
 
 
-// Ctest1Dlg message handlers
-void Ctest1Dlg::OnNumberKey(UINT nID)
-{
-	//switch(nID)
-	AfxMessageBox("0");
-
-}
-
-void Ctest1Dlg::OnOperationKey(UINT nID)
-{
-	//switch(nID)
-	AfxMessageBox("1");
-
-}
 
 BOOL Ctest1Dlg::OnInitDialog()
 {
@@ -136,6 +157,7 @@ BOOL Ctest1Dlg::OnInitDialog()
 		MessageBox("Init history file error!");
 		return FALSE;
 	}
+    //((Ctest1App*)AfxGetApp())->m_hwndDlg=m_hWnd;
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -194,9 +216,9 @@ void Ctest1Dlg::OnBnClickedButton1()
 	// TODO: 在此添加控件通知处理程序代码
 	//IDC_STATIC
 	int num = vbase.get_number_of_new();
-	if( word_index < num )
+	if( word_index < num -1 )
 	{
-		SetDlgItemText(IDC_STATIC,vbase.get_new_word_at(word_index++).word.c_str());
+		SetDlgItemText(IDC_STATIC,vbase.get_new_word_at(++word_index).word.c_str());
 	}
 	else
 	{
@@ -219,6 +241,7 @@ void Ctest1Dlg::OnBnClickedButton2()
 	{
 		MessageBox("Load word file error!");
 	}
+    SetDlgItemText(IDC_STATIC,vbase.get_new_word_at(0).word.c_str());
 
 }
 
@@ -264,12 +287,3 @@ void Ctest1Dlg::OnBnClickedButton3()
 	}
 }
 
-/*
-void Ctest1Dlg::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 
-{
-	if (char(nChar) == 'X')
-		OnOK();
-
-	CDialog::OnKeyDown(nChar, nRepCnt, nFlags);
-}
-*/

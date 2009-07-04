@@ -20,6 +20,11 @@ enum KEY {BYSTR,BYNUM,BYSTRR,BYNUMR};
 #define UNKNOWN_FILE 	"./data/unknown.txt"
 #define NONEED_FILE 	"./data/noneed.txt"
 
+#if 0
+#define KNOWN_FILE 		"C:/Users/code/test1/test\ 1/data/known.txt"
+#define UNKNOWN_FILE 	"C:/Users/code/test1/test\ 1/data/unknown.txt"
+#define NONEED_FILE 	"C:/Users/code/test1/test\ 1/data/noneed.txt"
+#endif
 
 class CWord
 {

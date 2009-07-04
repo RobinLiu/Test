@@ -24,8 +24,10 @@ public:
 	virtual BOOL InitInstance();
 
 // Implementation
-
+//    HWND m_hwndDlg;
+//    virtual BOOL ProcessMessageFilter(int code, LPMSG lpMsg);
 	DECLARE_MESSAGE_MAP()
+
 };
 
 extern Ctest1App theApp;

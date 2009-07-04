@@ -74,5 +74,34 @@ BOOL Ctest1App::InitInstance()
 
 	// Since the dialog has been closed, return FALSE so that we exit the
 	//  application, rather than start the application's message pump.
-	return FALSE;
+//	m_hwndDlg=NULL;
+    return FALSE;
 }
+#if 0
+BOOL Ctest1App::ProcessMessageFilter(int code, LPMSG lpMsg)
+{
+    if(m_hwndDlg != NULL)
+    {
+        if((lpMsg->hwnd == m_hwndDlg)||::IsChild(m_hwndDlg,lpMsg->hwnd))
+        {
+            if(lpMsg->message==WM_CHAR)
+            {
+                 //AfxMessageBox("KKK");
+                //Ctest1Dlg::Instance()->OnOperationKey(lpMsg->wParam);
+               /* switch (lpMsg->wParam) 
+                {
+                case 'j':
+                    //AfxMessageBox("jjj");
+                    //Ctest1Dlg::Instance()->set_IDC_text("jjj");
+                    Ctest1Dlg::Instance()->OnOperationKey('j');
+                    break;
+                case 'k':
+                    Ctest1Dlg::Instance()->OnOperationKey('k');
+
+                }*/
+            }
+        }
+    }
+    return 0;
+}
+#endif

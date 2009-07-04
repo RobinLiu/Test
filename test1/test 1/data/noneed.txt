@@ -109,6 +109,7 @@ sanford                       10
 scott                         10
 steven                        10
 tom                           10
+aaa                           9
 aristotle                     9
 barbara                       9
 caesar                        9
@@ -118,6 +119,7 @@ ity                           9
 jakarta                       9
 manhattan                     9
 qaeda                         9
+vvvvv                         9
 ann                           8
 austen                        8
 caltech                       8
@@ -208,6 +210,7 @@ abu                           2
 acheson                       2
 afl                           2
 afscme                        2
+bbb                           2
 boos                          2
 bryant                        2
 francine                      2
@@ -227,13 +230,17 @@ agoal                         1
 ahmed                         1
 arenas                        1
 ccc                           1
+ddd                           1
 discomfoort                   1
 edison                        1
 entixe                        1
+fff                           1
+ggg                           1
 hoity                         1
 jekyll                        1
 msw                           1
 natu                          1
+ppp                           1
 subcon                        1
 thar                          1
 visuali                       1

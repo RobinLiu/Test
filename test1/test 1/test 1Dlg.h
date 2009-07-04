@@ -12,14 +12,14 @@ class Ctest1Dlg : public CDialog
 // Construction
 public:
 	Ctest1Dlg(CWnd* pParent = NULL);	// standard constructor
-
+    //static Ctest1Dlg* Instance();
 // Dialog Data
 	enum { IDD = IDD_TEST1_DIALOG };
-
+    virtual BOOL Ctest1Dlg::PreTranslateMessage(MSG* pMsg);
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
 
-
+    //static Ctest1Dlg* __instance;
 // Implementation
 protected:
 	HICON m_hIcon;
@@ -36,6 +36,4 @@ public:
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedButton3();
-	afx_msg void OnNumberKey(UINT nID);
-	afx_msg void OnOperationKey(UINT nID); 
 };
