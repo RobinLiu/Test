@@ -219,13 +219,24 @@ void Ctest1Dlg::OnBnClickedButton2()
 	{
 		MessageBox("Load word file error!");
 	}
+
 }
 
 void Ctest1Dlg::OnBnClickedOk()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	
-	OnOK();
+	int ret = AfxMessageBox("Exit? ",MB_OKCANCEL);
+    if(ret == IDCANCEL)
+    {
+        return;
+    }
+    else if(ret == IDOK )
+    {
+        OnBnClickedButton3();
+        OnOK();
+    }
+    
+    return;
 }
 
 void Ctest1Dlg::OnBnClickedButton3()

@@ -21,7 +21,12 @@ int VocabularyBase::init_base()
 
 int VocabularyBase::load_word_file(const string& filename)
 {
-	return new_list.load_word_file(filename);
+	if(new_list.load_word_file(filename))
+    {
+        return -1;
+    }
+    filter_known_words();
+    return 0;
 }
 
 int VocabularyBase::add_know_word(CWord& word)
