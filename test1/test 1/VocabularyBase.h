@@ -38,7 +38,10 @@ public:
 	{
 		return new_list.get_word_at(pos);
 	}
-	
+	int get_unknown_times(CWord& word)
+    {
+        return (1 + unknow_list.get_repeat_times(word));   
+    };
 	
 private:
 	Cword_list known_list;

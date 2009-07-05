@@ -244,10 +244,20 @@ void Ctest1Dlg::OnBnClickedButton1()
 	if( word_index < num -1 )
 	{
 		SetDlgItemText(IDC_STATIC,vbase.get_new_word_at(++word_index).word.c_str());
+        CString numofword, repeat_times;
+        numofword.Format("There are %d word(s) need to be classified",
+            num - word_index);
+        SetDlgItemText(IDC_STATIC_NO,numofword);
+        repeat_times.Format("This is the %d time(s) you met the word",
+            vbase.get_unknown_times(vbase.get_new_word_at(word_index)));
+        SetDlgItemText(IDC_STATIC_TIMES,repeat_times);
 	}
 	else
 	{
-		MessageBox("All word has been displayed!");
+        SetDlgItemText(IDC_STATIC_NO,"");
+        SetDlgItemText(IDC_STATIC,"");
+        SetDlgItemText(IDC_STATIC_TIMES,"");
+        MessageBox("All word has been classified!");
 	}
 }
 
@@ -268,6 +278,14 @@ void Ctest1Dlg::OnBnClickedButton2()
 		MessageBox("Load word file error!");
 	}
     SetDlgItemText(IDC_STATIC,vbase.get_new_word_at(0).word.c_str());
+    CString numofword,repeat_times;
+    numofword.Format("There are %d word(s) need to be classified",
+        vbase.get_number_of_new());
+    SetDlgItemText(IDC_STATIC_NO,numofword);
+
+    repeat_times.Format("This is the %d time(s) you met the word",
+        vbase.get_unknown_times(vbase.get_new_word_at(0)));
+    SetDlgItemText(IDC_STATIC_TIMES,repeat_times);
 
 }
 
