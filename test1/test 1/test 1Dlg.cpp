@@ -5,6 +5,7 @@
 #include "test 1.h"
 #include "test 1Dlg.h"
 #include "VocabularyBase.h"
+#include <direct.h>
 
 
 #ifdef _DEBUG
@@ -14,6 +15,7 @@
 
 VocabularyBase vbase;
 int word_index = 0;
+char *cwd = NULL;
 //Ctest1Dlg dlg;
 // CAboutDlg dialog used for App About
 #if 0
@@ -152,7 +154,12 @@ BOOL Ctest1Dlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
-	if(vbase.init_base())
+    if( (cwd = _getcwd( NULL, 0 )) == NULL )
+    {
+        MessageBox("getcwd error!");
+    }
+
+	if(vbase.init_base(cwd))
 	{
 		MessageBox("Init history file error!");
 		return FALSE;
@@ -267,14 +274,18 @@ void Ctest1Dlg::OnBnClickedButton2()
 void Ctest1Dlg::OnBnClickedOk()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	int ret = AfxMessageBox("Exit? ",MB_OKCANCEL);
+	int ret = AfxMessageBox("Save your data? ",MB_YESNOCANCEL);
     if(ret == IDCANCEL)
     {
         return;
     }
-    else if(ret == IDOK )
+    else if(ret == IDYES)
     {
         OnBnClickedButton3();
+        OnOK();
+    }
+    else if(ret == IDNO)
+    {
         OnOK();
     }
     
@@ -298,13 +309,13 @@ void Ctest1Dlg::OnBnClickedButton3()
 	
 	vbase.sort_list(BYSTR);
 	vbase.stable_sort_list(BYNUMR);
-	if(vbase.save_all())
+	if(vbase.save_all(cwd))
 	{
 		MessageBox("Save data failed!");
 	}
 	else
 	{
-		MessageBox("All word has been displayed!");
+		MessageBox("Save data successfully!");
 	}
 }
 

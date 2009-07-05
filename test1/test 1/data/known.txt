@@ -102,6 +102,7 @@ military                      33
 next                          33
 quality                       33
 recently                      33
+scientist                     33
 also                          32
 american                      32
 been                          32
@@ -129,6 +130,7 @@ across                        31
 african                       31
 buy                           31
 development                   31
+expect                        31
 late                          31
 made                          31
 most                          31
@@ -142,7 +144,6 @@ process                       31
 rather                        31
 research                      31
 round                         31
-scientist                     31
 sixties                       31
 statement                     31
 technology                    31
@@ -163,6 +164,7 @@ point                         30
 remain                        30
 should                        30
 solution                      30
+turn                          30
 acquire                       29
 back                          29
 because                       29
@@ -172,7 +174,6 @@ constitutional                29
 effort                        29
 event                         29
 evidence                      29
-expect                        29
 find                          29
 give                          29
 government                    29
@@ -183,6 +184,7 @@ much                          29
 north                         29
 put                           29
 rapidly                       29
+result                        29
 said                          29
 say                           29
 services                      29
@@ -218,7 +220,6 @@ share                         28
 stand                         28
 tell                          28
 track                         28
-turn                          28
 vital                         28
 yield                         28
 ahead                         27
@@ -251,7 +252,6 @@ positive                      27
 press                         27
 provide                       27
 reason                        27
-result                        27
 risk                          27
 sale                          27
 same                          27
@@ -270,6 +270,7 @@ center                        26
 chance                        26
 common                        26
 communication                 26
+condition                     26
 confirm                       26
 death                         26
 detail                        26
@@ -312,6 +313,7 @@ stick                         26
 their                         26
 think                         26
 threat                        26
+tool                          26
 wage                          26
 whole                         26
 ability                       25
@@ -413,6 +415,7 @@ legislation                   24
 little                        24
 lower                         24
 measure                       24
+meet                          24
 model                         24
 must                          24
 name                          24
@@ -437,13 +440,13 @@ strange                       24
 strong                        24
 taking                        24
 then                          24
-tool                          24
 touch                         24
 try                           24
 various                       24
 wages                         24
 want                          24
 witness                       24
+accord                        23
 achieve                       23
 addition                      23
 amendment                     23
@@ -485,6 +488,7 @@ including                     23
 liberty                       23
 light                         23
 majority                      23
+mark                          23
 met                           23
 mind                          23
 money                         23
@@ -540,7 +544,6 @@ both                          22
 ceremony                      22
 city                          22
 clear                         22
-condition                     22
 conference                    22
 conflict                      22
 decide                        22
@@ -574,7 +577,6 @@ main                          22
 makes                         22
 man                           22
 material                      22
-meet                          22
 mistake                       22
 musical                       22
 network                       22
@@ -597,6 +599,7 @@ reaction                      22
 recent                        22
 remember                      22
 reputation                    22
+researcher                    22
 restrict                      22
 root                          22
 rough                         22
@@ -605,6 +608,7 @@ source                        22
 space                         22
 states                        22
 talk                          22
+test                          22
 thank                         22
 them                          22
 trial                         22
@@ -615,7 +619,6 @@ weapon                        22
 weight                        22
 without                       22
 accept                        21
-accord                        21
 act                           21
 agree                         21
 allow                         21
@@ -681,7 +684,6 @@ like                          21
 machines                      21
 maintain                      21
 making                        21
-mark                          21
 match                         21
 method                        21
 middle                        21
@@ -860,7 +862,6 @@ real                          20
 recognized                    20
 religion                      20
 request                       20
-researcher                    20
 resist                        20
 responsible                   20
 running                       20
@@ -882,7 +883,6 @@ surface                       20
 survive                       20
 suspect                       20
 sustain                       20
-test                          20
 three                         20
 tissue                        20
 top                           20
@@ -1029,11 +1029,13 @@ random                        19
 ready                         19
 remind                        19
 rest                          19
+room                          19
 safe                          19
 seed                          19
 send                          19
 similarly                     19
 single                        19
+situation                     19
 slow                          19
 sound                         19
 speak                         19
@@ -1051,6 +1053,7 @@ suffer                        19
 suitable                      19
 supply                        19
 sure                          19
+target                        19
 task                          19
 teach                         19
 technical                     19
@@ -1421,7 +1424,6 @@ revise                        17
 reward                        17
 rich                          17
 rock                          17
-room                          17
 roughly                       17
 rule                          17
 rules                         17
@@ -1434,7 +1436,6 @@ seven                         17
 severely                      17
 shrink                        17
 sight                         17
-situation                     17
 size                          17
 someone                       17
 split                         17
@@ -1443,7 +1444,6 @@ substance                     17
 sugar                         17
 supplement                    17
 taken                         17
-target                        17
 teacher                       17
 tend                          17
 themselves                    17
@@ -1721,6 +1721,7 @@ becomes                       15
 behave                        15
 bible                         15
 black                         15
+blow                          15
 boil                          15
 bomb                          15
 boost                         15
@@ -2271,7 +2272,6 @@ beat                          13
 beauty                        13
 beneficial                    13
 block                         13
-blow                          13
 bones                         13
 brave                         13
 breach                        13
@@ -2369,6 +2369,7 @@ grandfather                   13
 grew                          13
 guide                         13
 guilty                        13
+hammer                        13
 happy                         13
 harbor                        13
 himself                       13
@@ -2757,6 +2758,7 @@ senate                        12
 serves                        12
 settlement                    12
 seventies                     12
+sex                           12
 shake                         12
 shares                        12
 shell                         12
@@ -3318,7 +3320,6 @@ script                        10
 sedentary                     10
 seldom                        10
 seventy                       10
-sex                           10
 shirt                         10
 shortly                       10
 shoulder                      10
@@ -4062,7 +4063,6 @@ gratitude                     7
 gregory                       7
 guest                         7
 halfway                       7
-hammer                        7
 happier                       7
 harshly                       7
 hint                          7
@@ -5182,6 +5182,7 @@ ache                          1
 activated                     1
 activates                     1
 additives                     1
+adept                         1
 adjective                     1
 adjourned                     1
 administering                 1

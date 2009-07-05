@@ -806,6 +806,7 @@ wanes                         1
 wardrobe                      1
 whelmed                       1
 whizzed                       1
+wielding                      1
 wreck                         1
 wreckage                      1
 york                          1

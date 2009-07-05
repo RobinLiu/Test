@@ -12,11 +12,11 @@ VocabularyBase::~VocabularyBase(void)
 {
 }
 
-int VocabularyBase::init_base()
+int VocabularyBase::init_base(const string& path)
 {
-	return (known_list.init_from_file(KNOWN_FILE)
-		||unknow_list.init_from_file(UNKNOWN_FILE)
-		||noneed_list.init_from_file(NONEED_FILE));
+	return (known_list.init_from_file(path + KNOWN_FILE)
+		||unknow_list.init_from_file(path + UNKNOWN_FILE)
+		||noneed_list.init_from_file(path + NONEED_FILE));
 }
 
 int VocabularyBase::load_word_file(const string& filename)
@@ -56,11 +56,11 @@ int VocabularyBase::save_list_to_file(Cword_list& word_list)
 	return 0;
 }
 
-int VocabularyBase::save_all()
+int VocabularyBase::save_all(const string& path)
 {
-	return(known_list.save_to_file(KNOWN_FILE)
-		||unknow_list.save_to_file(UNKNOWN_FILE)
-		||noneed_list.save_to_file(NONEED_FILE));
+	return(known_list.save_to_file(path + KNOWN_FILE)
+		||unknow_list.save_to_file(path + UNKNOWN_FILE)
+		||noneed_list.save_to_file(path + NONEED_FILE));
 }
 
 void VocabularyBase::clssify_word(CWord& word, WORD_STATUS status)

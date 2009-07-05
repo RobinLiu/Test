@@ -81,7 +81,7 @@ int Cword_list::init_from_file(const string &hisfile)
 
 int Cword_list::save_to_file(const string &desfile)
 {
-	ofstream outfile(desfile.c_str(), ofstream::out);
+	fstream outfile(desfile.c_str(), ios_base::out);
 	if(!outfile)
 	{
 		cout<<"Open file "<<desfile<<" error!"<<endl;

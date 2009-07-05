@@ -12,7 +12,7 @@ public:
 	VocabularyBase(void);
 	virtual ~VocabularyBase(void);
 
-	int init_base();
+	int init_base(const string& path);
 	int load_word_file(const string& filename);
 
 	int add_know_word(CWord& word);
@@ -23,7 +23,7 @@ public:
 	void clssify_word(CWord& word,WORD_STATUS status);
 
 	int save_list_to_file(Cword_list& word_list);
-	int save_all();
+	int save_all(const string& path);
 
 	bool is_word_in_base(CWord& word);
 	void sort_list(KEY key);
