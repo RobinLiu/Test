@@ -316,3 +316,16 @@ int VocabularyBase::save_word_to_file(const string& file_name)
 {
     return new_list.save_to_file(file_name);
 }
+
+void VocabularyBase::filter_suffixed_word(void)
+{
+
+}
+void VocabularyBase::del_dup_word(void)
+{
+    /*Cword_list known_list;
+	Cword_list unknow_list;
+	Cword_list noneed_list;
+	Cword_list new_list;*/
+
+}
