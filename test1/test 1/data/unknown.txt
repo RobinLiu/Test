@@ -10,6 +10,7 @@ sentinel                      9
 neptune                       8
 springfield                   8
 suharto                       8
+compartment                   7
 substitute                    7
 acorns                        6
 harsh                         6
@@ -17,7 +18,6 @@ hussein                       6
 sled                          6
 arouse                        5
 bali                          5
-compartment                   5
 dandelions                    5
 deliberately                  5
 demographic                   5
@@ -27,6 +27,7 @@ congest                       4
 fledgling                     4
 formerly                      4
 herd                          4
+implication                   4
 irritating                    4
 luster                        4
 odor                          4
@@ -42,6 +43,7 @@ vessel                        4
 withstand                     4
 admittedly                    3
 alteration                    3
+armpit                        3
 atlas                         3
 authenticity                  3
 brick                         3
@@ -50,6 +52,7 @@ canopy                        3
 clipped                       3
 confine                       3
 conserve                      3
+creep                         3
 curved                        3
 delicate                      3
 desolate                      3
@@ -58,6 +61,7 @@ doze                          3
 drift                         3
 falcons                       3
 hail                          3
+jetliner                      3
 lawmaking                     3
 luminous                      3
 lure                          3
@@ -68,6 +72,7 @@ nucleic                       3
 obscure                       3
 outskirts                     3
 pandering                     3
+paradox                       3
 parliament                    3
 potent                        3
 predominantly                 3
@@ -83,7 +88,10 @@ span                          3
 spoil                         3
 spur                          3
 staple                        3
+stickleback                   3
+strain                        3
 striking                      3
+suspend                       3
 tame                          3
 vigorously                    3
 adorn                         2
@@ -114,6 +122,7 @@ bump                          2
 burden                        2
 burdensome                    2
 caliber                       2
+caveat                        2
 cement                        2
 charisma                      2
 chronicle                     2
@@ -134,7 +143,6 @@ consorted                     2
 conspicuous                   2
 constraint                    2
 correspondingly               2
-creep                         2
 cumbersome                    2
 curiously                     2
 customarily                   2
@@ -174,7 +182,6 @@ fruitful                      2
 fusion                        2
 gambit                        2
 glowing                       2
-graduates                     2
 grumbled                      2
 henceforth                    2
 herald                        2
@@ -182,11 +189,11 @@ heroic                        2
 hinged                        2
 hinterland                    2
 immature                      2
+immoral                       2
 immunity                      2
 immutable                     2
 impediment                    2
 imperceptibly                 2
-implication                   2
 imposing                      2
 impotant                      2
 inception                     2
@@ -200,7 +207,9 @@ intervention                  2
 intestines                    2
 intricate                     2
 intriguing                    2
+intrinsic                     2
 iterate                       2
+jay                           2
 laborious                     2
 locale                        2
 lured                         2
@@ -223,7 +232,6 @@ observatory                   2
 ornate                        2
 outbreak                      2
 overwhelm                     2
-paradox                       2
 peculiar                      2
 periphery                     2
 pertinent                     2
@@ -233,6 +241,7 @@ pore                          2
 precarious                    2
 preposition                   2
 preside                       2
+prestige                      2
 presumably                    2
 prevailed                     2
 protrude                      2
@@ -275,9 +284,7 @@ spanning                      2
 spark                         2
 speculate                     2
 staggering                    2
-stickleback                   2
 stoves                        2
-strain                        2
 stringent                     2
 stubborn                      2
 subjugated                    2
@@ -293,9 +300,9 @@ surge                         2
 surging                       2
 surplus                       2
 susceptible                   2
-suspend                       2
 swiftness                     2
 symmetrical                   2
+symptoms                      2
 synthesis                     2
 tacks                         2
 taming                        2
@@ -327,7 +334,6 @@ anarchy                       1
 anticlotting                  1
 antioxidants                  1
 arcane                        1
-armpit                        1
 assassinated                  1
 astrolabes                    1
 asylum                        1
@@ -357,7 +363,6 @@ caboose                       1
 canal                         1
 cant                          1
 castle                        1
-caveat                        1
 charitable                    1
 chihuahua                     1
 chore                         1
@@ -421,7 +426,6 @@ enthralled                    1
 enzyme                        1
 enzymes                       1
 equinox                       1
-erupted                       1
 esteem                        1
 etched                        1
 eugenie                       1
@@ -496,7 +500,6 @@ iditarod                      1
 idol                          1
 illegible                     1
 illustrator                   1
-immoral                       1
 imp                           1
 impart                        1
 improbable                    1
@@ -517,14 +520,11 @@ insane                        1
 intake                        1
 interbreeding                 1
 intimidating                  1
-intrinsic                     1
 inventive                     1
 iota                          1
 irreplaceable                 1
 iss                           1
 itunes                        1
-jay                           1
-jetliner                      1
 kidney                        1
 kit                           1
 knack                         1
@@ -638,7 +638,6 @@ prefixes                      1
 prematurely                   1
 preservation                  1
 preserving                    1
-prestige                      1
 primate                       1
 principia                     1
 procrastinate                 1
@@ -761,7 +760,6 @@ surrender                     1
 surveillance                  1
 swing                         1
 symmetry                      1
-symptoms                      1
 synthetic                     1
 tacking                       1
 tainted                       1

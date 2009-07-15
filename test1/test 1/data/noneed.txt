@@ -5,7 +5,7 @@ york                          141
 tri                           128
 thi                           126
 bob                           125
-starr                         102
+starr                         103
 michelle                      97
 bosnia                        84
 chicago                       80
@@ -40,11 +40,11 @@ mov                           20
 davie                         19
 hte                           19
 virginia                      19
+john                          18
 prep                          18
 typ                           18
 ads                           17
 argu                          17
-john                          17
 tion                          17
 british                       16
 didn                          16
@@ -146,6 +146,7 @@ www                           7
 boston                        6
 danny                         6
 dorothy                       6
+gmail                         6
 osama                         6
 rica                          6
 wilhelm                       6
@@ -237,11 +238,15 @@ entixe                        1
 fff                           1
 ggg                           1
 hoity                         1
+imap                          1
 jekyll                        1
+lengyan                       1
 msw                           1
 natu                          1
 ppp                           1
 subcon                        1
 thar                          1
+toefl                         1
+twittersphere                 1
 visuali                       1
 wed                           1

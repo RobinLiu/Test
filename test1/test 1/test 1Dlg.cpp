@@ -83,6 +83,9 @@ BOOL Ctest1Dlg::PreTranslateMessage(MSG* pMsg)
                     vbase.clssify_word(vbase.get_new_word_at(word_index),NONEED);
                     OnBnClickedButton1();    
                     break;
+                case 'n':
+                    OnBnClickedButton1();
+                    break;
                 default:
                     break;
             }
