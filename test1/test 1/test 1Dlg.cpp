@@ -124,6 +124,10 @@ BEGIN_MESSAGE_MAP(Ctest1Dlg, CDialog)
 	ON_BN_CLICKED(IDOK, &Ctest1Dlg::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BUTTON3, &Ctest1Dlg::OnBnClickedButton3)
     ON_BN_CLICKED(IDC_BUTTON4, &Ctest1Dlg::OnBnClickedButton4)
+    ON_BN_CLICKED(IDC_BUTTON5, &Ctest1Dlg::OnBnClickedButton5)
+    ON_BN_CLICKED(IDC_BUTTON6, &Ctest1Dlg::OnBnClickedButton6)
+    ON_BN_CLICKED(IDC_BUTTON7, &Ctest1Dlg::OnBnClickedButton7)
+    ON_BN_CLICKED(IDC_BUTTON8, &Ctest1Dlg::OnBnClickedButton8)
 END_MESSAGE_MAP()
 
 
@@ -354,4 +358,27 @@ void Ctest1Dlg::OnBnClickedButton4()
     {
         MessageBox("Save data failed!");
     }
+}
+
+void Ctest1Dlg::OnBnClickedButton5()
+{
+    vbase.clssify_word(vbase.get_new_word_at(word_index),KNOWN);
+    OnBnClickedButton1();
+}
+
+void Ctest1Dlg::OnBnClickedButton6()
+{
+    vbase.clssify_word(vbase.get_new_word_at(word_index),UNKNOWN);
+    OnBnClickedButton1();
+}
+
+void Ctest1Dlg::OnBnClickedButton7()
+{
+    vbase.clssify_word(vbase.get_new_word_at(word_index),NONEED);
+    OnBnClickedButton1();
+}
+
+void Ctest1Dlg::OnBnClickedButton8()
+{
+    OnBnClickedButton1();
 }
