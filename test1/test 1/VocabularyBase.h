@@ -42,6 +42,8 @@ public:
     {
         return (1 + unknow_list.get_repeat_times(word));   
     };
+
+    int save_word_to_file(const string& file_name);
 	
 private:
 	Cword_list known_list;

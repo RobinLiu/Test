@@ -123,8 +123,7 @@ BEGIN_MESSAGE_MAP(Ctest1Dlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, &Ctest1Dlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDOK, &Ctest1Dlg::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BUTTON3, &Ctest1Dlg::OnBnClickedButton3)
-//	ON_COMMAND_RANGE(IDC_STATIC,IDC_STATIC,OnNumberKey)
-//	ON_COMMAND_RANGE(IDC_STATIC,IDC_STATIC,OnOperationKey)
+    ON_BN_CLICKED(IDC_BUTTON4, &Ctest1Dlg::OnBnClickedButton4)
 END_MESSAGE_MAP()
 
 
@@ -340,3 +339,19 @@ void Ctest1Dlg::OnBnClickedButton3()
 	}
 }
 
+
+void Ctest1Dlg::OnBnClickedButton4()
+{
+    CString strFilePath;
+    GetDlgItemText(IDC_WORD_PATH, strFilePath);
+    int n = strFilePath.Replace(_T(".txt"), _T("_new.txt"));
+    ASSERT(n == 1);
+    if(0 == vbase.save_word_to_file(strFilePath.GetBuffer()))
+    {   
+        MessageBox("Save data successfully!");
+    }
+    else
+    {
+        MessageBox("Save data failed!");
+    }
+}

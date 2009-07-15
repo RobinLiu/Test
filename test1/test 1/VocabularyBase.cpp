@@ -310,3 +310,9 @@ void VocabularyBase::update_repeat_times(CWord& word)
 			new_list.add_word(word);
 		}		
 }
+
+
+int VocabularyBase::save_word_to_file(const string& file_name)
+{
+    return new_list.save_to_file(file_name);
+}
