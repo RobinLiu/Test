@@ -188,7 +188,31 @@ BOOL Ctest1Dlg::OnInitDialog()
         }
 
     }*/
-         
+    CFont * f; 
+    f = new CFont; 
+    f->CreateFont(53, // nHeight 
+                 0, // nWidth 
+                 0, // nEscapement 
+                 0, // nOrientation 
+                 FW_BOLD, // nWeight 
+                 FALSE, // bItalic 
+                 FALSE, // bUnderline 
+                 0, // cStrikeOut 
+                 ANSI_CHARSET, // nCharSet 
+                 OUT_DEFAULT_PRECIS, // nOutPrecision 
+                 CLIP_DEFAULT_PRECIS, // nClipPrecision 
+                 DEFAULT_QUALITY, // nQuality 
+                 DEFAULT_PITCH | FF_SWISS, // nPitchAndFamily 
+                 _T("Times New Roman")); // lpszFac 
+    /*CFont font;
+    LOGFONT lf;
+    memset(&lf, 0, sizeof(LOGFONT));       // zero out structure
+    lf.lfHeight = 18;                      // request a 12-pixel-height font
+    _tcsncpy_s(lf.lfFaceName, LF_FACESIZE, 
+       _T("Times New Roman"), 28);        */            // request a face name "Arial"
+    //VERIFY(font.CreateFontIndirect(&lf));  // create the font
+
+    GetDlgItem(IDC_STATIC)->SetFont(f);        
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
