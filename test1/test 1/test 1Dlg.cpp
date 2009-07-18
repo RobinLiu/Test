@@ -72,16 +72,13 @@ BOOL Ctest1Dlg::PreTranslateMessage(MSG* pMsg)
             switch (pMsg->wParam) 
             {
                 case 'j':
-                    vbase.clssify_word(vbase.get_new_word_at(word_index),KNOWN);
-                    OnBnClickedButton1();
+                    OnBnClickedButton5();
                     break;
                 case 'k':
-                    vbase.clssify_word(vbase.get_new_word_at(word_index),UNKNOWN);
-                    OnBnClickedButton1();    
+                    OnBnClickedButton6();   
                     break;
                 case 'l':
-                    vbase.clssify_word(vbase.get_new_word_at(word_index),NONEED);
-                    OnBnClickedButton1();    
+                    OnBnClickedButton7();   
                     break;
                 case 'n':
                     OnBnClickedButton1();
@@ -204,13 +201,7 @@ BOOL Ctest1Dlg::OnInitDialog()
                  DEFAULT_QUALITY, // nQuality 
                  DEFAULT_PITCH | FF_SWISS, // nPitchAndFamily 
                  _T("Times New Roman")); // lpszFac 
-    /*CFont font;
-    LOGFONT lf;
-    memset(&lf, 0, sizeof(LOGFONT));       // zero out structure
-    lf.lfHeight = 18;                      // request a 12-pixel-height font
-    _tcsncpy_s(lf.lfFaceName, LF_FACESIZE, 
-       _T("Times New Roman"), 28);        */            // request a face name "Arial"
-    //VERIFY(font.CreateFontIndirect(&lf));  // create the font
+
 
     GetDlgItem(IDC_STATIC)->SetFont(f);        
 	return TRUE;  // return TRUE  unless you set the focus to a control
