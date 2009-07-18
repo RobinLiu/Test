@@ -302,10 +302,16 @@ void Ctest1Dlg::OnBnClickedButton2()
 		SetDlgItemText(IDC_EDIT1, strFilePath);
         SetDlgItemText(IDC_WORD_PATH, strFilePath);    
 	}
+	else
+	{
+		MessageBox("Select one text file to load!");
+		return;
+	}
 
 	if(vbase.load_word_file(strFilePath.GetBuffer()))
 	{
 		MessageBox("Load word file error!");
+		return;
 	}
     SetDlgItemText(IDC_STATIC,vbase.get_new_word_at(0).word.c_str());
     CString numofword,repeat_times;
