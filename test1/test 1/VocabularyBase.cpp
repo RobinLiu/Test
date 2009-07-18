@@ -323,9 +323,13 @@ void VocabularyBase::filter_suffixed_word(void)
 }
 void VocabularyBase::del_dup_word(void)
 {
-    /*Cword_list known_list;
-	Cword_list unknow_list;
-	Cword_list noneed_list;
-	Cword_list new_list;*/
 
+}
+
+
+void VocabularyBase::reset_all_counter(void)
+{
+    known_list.reset_counter();
+	unknow_list.reset_counter();
+	noneed_list.reset_counter();
 }

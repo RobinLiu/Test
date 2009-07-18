@@ -363,6 +363,7 @@ void Ctest1Dlg::OnBnClickedButton3()
 	
 	vbase.sort_list(BYSTR);
 	vbase.stable_sort_list(BYNUMR);
+	//vbase.reset_all_counter();
 	if(vbase.save_all(cwd))
 	{
 		MessageBox("Save data failed!");

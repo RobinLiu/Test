@@ -46,6 +46,7 @@ public:
     int save_word_to_file(const string& file_name);
     void del_dup_word(void);
     void filter_suffixed_word(void);
+	void reset_all_counter(void);
 	
 private:
 	Cword_list known_list;

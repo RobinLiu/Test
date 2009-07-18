@@ -154,3 +154,13 @@ vector<CWord>::iterator& Cword_list::end()
 	iterend = word_list.end();
 	return iterend;
 }
+
+
+void Cword_list::reset_counter(void)
+{
+	vector<CWord>::iterator iter = word_list.begin();
+	for(; iter != word_list.end(); ++iter)
+	{
+		iter->repeat_times = 1;
+	}
+}

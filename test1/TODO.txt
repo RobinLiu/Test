@@ -1,3 +1,4 @@
 1. remove duplicated word in list
 2. change data structure to multiset for quick search
 3. improve the recognition of word
+4. add one function to reset the counters

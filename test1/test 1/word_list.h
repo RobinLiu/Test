@@ -77,6 +77,7 @@ public:
 	{
 		return word_list[pos];
 	};
+	void reset_counter(void);
 	
 
 	vector<CWord> word_list;
