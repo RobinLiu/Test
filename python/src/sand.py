@@ -34,12 +34,9 @@ def load_dict_from_file(file,dict):
                            
 def add_to_dict(word,dict):
     if dict.has_key(word):
-        '''print "repeat\t", word '''
         dict[word] += 1
     else:
         dict[word] = 1
-        '''print "New word\t", word'''
-    '''print_dict() '''     
 
 def get_word_from_string(str,dict):
     p = re.compile('[a-zA-Z]+')
@@ -150,7 +147,8 @@ def process_word(word,dict):
         if is_english_word(word):
             dict[word] = 1
                            
-def get_content_from_web(url,dict):
+def get_content_from_web(url):
+    word_list = []
     sock = urllib.urlopen("http://docs.python.org")
     htmlsrc = sock.read()
     sock.close()
@@ -161,10 +159,27 @@ def get_content_from_web(url,dict):
         m = p.findall(str)
         if m:
             for word in m:
-                if len(word) > 2:
-                    process_word(word.lower(),dict)
-                '''print word'''
-                
+                if len(word) > 1:
+                    word_list.append(word.lower())
+    return word_list
+
+def sort_original_content(word_list):
+    dict={}
+    for word in word_list:
+        add_to_dict(word,dict)   
+    L = sort_dict_to_list(dict)
+    return L
+
+def sort_new_word(word_list,record):
+    dict={}
+    for word in word_list:
+        if record.has_key(word):
+            print "word %s is known"%word
+        else:
+            add_to_dict(word,dict)     
+    L = sort_dict_to_list(dict) 
+    return L     
+               
 if __name__ == "__main__":
     str = []
     filename="c:/2.txt"
@@ -172,9 +187,17 @@ if __name__ == "__main__":
     '''Load local dictionary'''
     load_dict_from_file("c:/1.txt",word_dict)
     '''Get webcontent'''
-    get_content_from_web("http://docs.python.org",word_dict)   
-    d = sort_dict_to_list(word_dict)
-    save_list_to_file("c:/3.txt",d)
+    word_list = get_content_from_web("http://docs.python.org")
+    all_word = [] 
+    all_word = sort_original_content(word_list)
+#    print_list(all_word)
+
+    new_word = []
+    new_word = sort_new_word(word_list,word_dict)
+    print_list(all_word)
+    #print word_list  
+#    d = sort_dict_to_list(word_dict)
+#    save_list_to_file("c:/3.txt",d)
     print "done!"
 #    is_english_word("ttttt")
     
