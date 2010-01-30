@@ -1,3 +1,13 @@
+cnn                           18
+speicher                      4
+ahmadinejad                   3
+atlanta                       3
+alberta                       2
+argu                          2
+bas                           2
+edmonton                      2
+gulf                          2
+issu                          2
 aaa                           1
 aaaaaaaaaaaaaaaaaaaaa         1
 abc                           1
@@ -17,11 +27,11 @@ airvana                       1
 alan                          1
 alfred                        1
 americanposted                1
+anbar                         1
 ann                           1
 anti                          1
 aren                          1
 arenas                        1
-argu                          1
 aristotle                     1
 arizona                       1
 arkansas                      1
@@ -33,9 +43,9 @@ aymara                        1
 barack                        1
 barbara                       1
 barbour                       1
-bas                           1
 battat                        1
 bbb                           1
+bedouins                      1
 bernie                        1
 bernstein                     1
 biarni                        1
@@ -46,6 +56,7 @@ borlaug                       1
 bosch                         1
 bosnia                        1
 boston                        1
+brazil                        1
 bristol                       1
 britain                       1
 british                       1
@@ -58,6 +69,8 @@ byrd                          1
 caesar                        1
 caltech                       1
 calvin                        1
+cambrose                      1
+camrose                       1
 canada                        1
 carl                          1
 cas                           1
@@ -79,6 +92,7 @@ clinton                       1
 con                           1
 conj                          1
 coolidge                      1
+costner                       1
 countri                       1
 crookes                       1
 ctest                         1
@@ -96,6 +110,7 @@ discomfoort                   1
 dlg                           1
 dll                           1
 doesn                         1
+dominican                     1
 don                           1
 doo                           1
 dorothy                       1
@@ -104,6 +119,7 @@ edison                        1
 elizabeth                     1
 ent                           1
 entixe                        1
+exclusive                     1
 falk                          1
 fdr                           1
 fff                           1
@@ -122,6 +138,7 @@ henry                         1
 hewlett                       1
 hillary                       1
 hoity                         1
+houston                       1
 howe                          1
 hte                           1
 http                          1
@@ -132,10 +149,11 @@ imap                          1
 includ                        1
 indonesia                     1
 ing                           1
+intehran                      1
 ion                           1
 iran                          1
+irs                           1
 isn                           1
-issu                          1
 ity                           1
 jakarta                       1
 james                         1
@@ -150,10 +168,12 @@ johnny                        1
 julia                         1
 julian                        1
 justin                        1
+kevin                         1
 khayyam                       1
 kitties                       1
 krikalev                      1
 kuwait                        1
+laguardia                     1
 laplace                       1
 leif                          1
 lengyan                       1
@@ -163,6 +183,7 @@ liu                           1
 liv                           1
 los                           1
 madison                       1
+mahmoud                       1
 maliki                        1
 manhattan                     1
 marlboro                      1
@@ -171,9 +192,11 @@ mary                          1
 matson                        1
 maytag                        1
 mccarthy                      1
+mcgann                        1
 mcgovern                      1
 mexican                       1
 mfc                           1
+miami                         1
 michael                       1
 michelle                      1
 microsoft                     1
@@ -183,6 +206,7 @@ morris                        1
 mov                           1
 msdn                          1
 msw                           1
+multiset                      1
 naivet                        1
 napolitano                    1
 nato                          1
@@ -230,6 +254,7 @@ sciam                         1
 scott                         1
 seattle                       1
 shai                          1
+sheppard                      1
 shouldn                       1
 simon                         1
 starr                         1
@@ -242,6 +267,7 @@ susan                         1
 tak                           1
 teddy                         1
 tennessee                     1
+thailand                      1
 thar                          1
 theodore                      1
 ther                          1

@@ -1,11 +1,29 @@
+clunkers                      4
+melissa                       4
+downplay                      3
+sailor                        3
+smash                         3
+ado                           2
+bracket                       2
+burden                        2
+dam                           2
+devils                        2
+endorse                       2
+fad                           2
+hikers                        2
+oppress                       2
+raid                          2
+regents                       2
+screw                         2
+stadium                       2
 Understaffed                  1
 aceh                          1
 acorns                        1
 admittedly                    1
-ado                           1
 adorn                         1
 aesthetically                 1
 agrarian                      1
+allegedly                     1
 allergic                      1
 aloft                         1
 aloof                         1
@@ -38,6 +56,7 @@ autonomy                      1
 avail                         1
 avert                         1
 awesome                       1
+bail                          1
 bali                          1
 balks                         1
 batman                        1
@@ -57,9 +76,7 @@ boggling                      1
 bogus                         1
 bolstering                    1
 bolts                         1
-bond                          1
 bounty                        1
-bracket                       1
 brag                          1
 breed                         1
 brick                         1
@@ -69,7 +86,6 @@ bubbles                       1
 bucks                         1
 bump                          1
 bunch                         1
-burden                        1
 burdensome                    1
 burgeon                       1
 caboose                       1
@@ -146,7 +162,6 @@ curtains                      1
 curved                        1
 customarily                   1
 customary                     1
-dam                           1
 damp                          1
 dampen                        1
 dandelions                    1
@@ -166,9 +181,7 @@ deoxyribonucleic              1
 desolate                      1
 detest                        1
 devastated                    1
-devils                        1
 devious                       1
-diplomas                      1
 dismantle                     1
 disquieting                   1
 disseminate                   1
@@ -203,6 +216,7 @@ enamored                      1
 encompass                     1
 endearing                     1
 endorsed                      1
+endorsement                   1
 enhances                      1
 enrage                        1
 enthralled                    1
@@ -228,7 +242,6 @@ extol                         1
 extolled                      1
 extrapolate                   1
 extravaganzas                 1
-fad                           1
 falcons                       1
 falter                        1
 fare                          1
@@ -246,6 +259,7 @@ flabby                        1
 fledgling                     1
 flinched                      1
 fling                         1
+flocking                      1
 flopped                       1
 flourished                    1
 fluff                         1
@@ -290,6 +304,8 @@ guano                         1
 guerrilla                     1
 guinea                        1
 guises                        1
+gusts                         1
+guzzlers                      1
 hail                          1
 hanger                        1
 harsh                         1
@@ -303,6 +319,8 @@ herald                        1
 herd                          1
 heroic                        1
 hieroglyphics                 1
+hike                          1
+hiking                        1
 hinged                        1
 hinterland                    1
 hobgoblins                    1
@@ -366,10 +384,10 @@ inventive                     1
 iota                          1
 irreplaceable                 1
 irritating                    1
-irs                           1
 iss                           1
 iterate                       1
 itunes                        1
+jamboree                      1
 jay                           1
 jetliner                      1
 kentucky                      1
@@ -383,7 +401,6 @@ larry                         1
 latent                        1
 laundry                       1
 laureate                      1
-laurels                       1
 lawmaking                     1
 lewis                         1
 linhardt                      1
@@ -404,6 +421,7 @@ malaria                       1
 males                         1
 malpractice                   1
 marathoners                   1
+marines                       1
 markedly                      1
 masterpieces                  1
 matinee                       1
@@ -469,7 +487,6 @@ obscurity                     1
 observatory                   1
 odor                          1
 omnipotent                    1
-oppress                       1
 oppressive                    1
 ornate                        1
 oust                          1
@@ -584,18 +601,17 @@ pushover                      1
 pyramids                      1
 rack                          1
 radically                     1
-raid                          1
 rainy                         1
 randy                         1
 rats                          1
 rave                          1
 reaffirmed                    1
 rear                          1
+rebate                        1
 recital                       1
 reckless                      1
 reconciling                   1
 recruit                       1
-regents                       1
 reign                         1
 relentless                    1
 relentlessly                  1
@@ -642,7 +658,6 @@ sabotaging                    1
 saboteur                      1
 sagan                         1
 sail                          1
-sailor                        1
 salute                        1
 sanctioned                    1
 sanctuaries                   1
@@ -652,6 +667,7 @@ saturate                      1
 scandal                       1
 scarce                        1
 scarcely                      1
+scary                         1
 scattered                     1
 scent                         1
 schemes                       1
@@ -661,7 +677,6 @@ scorched                      1
 scored                        1
 scotch                        1
 scrape                        1
-screw                         1
 screwdriver                   1
 scrub                         1
 scrutiny                      1
@@ -690,7 +705,6 @@ slices                        1
 slipper                       1
 sluggish                      1
 slurping                      1
-smash                         1
 snap                          1
 sniffing                      1
 soak                          1
@@ -715,7 +729,6 @@ squeezable                    1
 squeeze                       1
 squint                        1
 stab                          1
-stadium                       1
 staggering                    1
 stain                         1
 stamina                       1
@@ -847,6 +860,7 @@ wanes                         1
 wardrobe                      1
 wary                          1
 whelmed                       1
+whereabouts                   1
 whizzed                       1
 wielding                      1
 withstand                     1
