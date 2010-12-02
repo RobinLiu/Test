@@ -1,0 +1,249 @@
+1 Princeton University (NJ)  :http://www.cs.princeton.edu/
+2 Harvard University (MA)  :http://www.deas.harvard.edu/
+3 Yale University (CT)  :http://www.cs.yale.edu/
+4 Massachusetts Inst. of Technology  :http://www.eecs.mit.edu/
+5 Stanford University (CA)  :http://www-cs.stanford.edu/
+6 University of California Berkeley  :http://www.cs.berkeley.edu/
+7 California Institute of Technology  :http://www.cs.caltech.edu/
+8 University of Chicago  :http://www.cdm.depaul.edu/
+9 Johns Hopkins University (MD)  :http://www.cs.jhu.edu/
+10 Duke University (NC)  :http://www.cs.duke.edu/
+11 Columbia University (NY)  :http://www.cs.columbia.edu/
+12 Cornell University (NY)  :http://www.cs.cornell.edu/
+13 University of Michigan Ann Arbor  :http://www.eecs.umich.edu/
+14 University of Pennsylvania  :http://www.cis.upenn.edu/
+15 Dartmouth College (NH)  :http://www.cs.dartmouth.edu/
+16 Northwestern University (IL)  :http://www.ece.northwestern.edu/
+17 Brown University (RI)  :http://www.cs.brown.edu/
+18 University of Virginia  :http://www.cs.virginia.edu/
+19 Rice University (TX)  :http://compsci.rice.edu/
+20 Univ. of California Los Angeles  :http://www.cs.ucla.edu/
+21 Univ. of Wisconsin Madison  :http://www.cs.wisc.edu/
+22 Carnegie Mellon University (PA)  :http://www.cs.cmu.edu/
+23 U. of North Carolina Chapel Hill  :
+24 U. of Illinois Urbana-Champaign  :http://cs.illinois.edu/
+25 Washington University in St. Louis  :http://cse.wustl.edu/
+26 Vanderbilt University (TN)  :http://eecs.vanderbilt.edu/
+27 University of Texas Austin  :http://www.cs.utexas.edu/
+28 Emory University (GA)  :http://www.mathcs.emory.edu/
+29 Georgetown University (DC)  :http://government.georgetown.edu/
+30 Georgia Institute of Technology  :http://www.cc.gatech.edu/
+31 University of Washington  :http://www.cs.washington.edu/
+32 Indiana University Bloomington  :http://www.soic.indiana.edu/
+33 Purdue Univ. West Lafayette (IN)  :http://www.cs.purdue.edu/
+34 University of Notre Dame (IN)  :http://www.cse.nd.edu/
+35 Univ. of California San Diego  :http://www-cse.ucsd.edu/
+36 University of California Davis *  :
+37 Ohio State University Columbus  :http://www.cse.ohio-state.edu/
+38 Univ. of Minnesota Twin Cities  :http://www.cs.umn.edu/
+39 College of William and Mary (VA)  :http://www.cs.wm.edu/
+40 Univ. of Southern California  :http://www.cs.usc.edu/
+41 Pennsylvania State U. University Park  :http://www.engr.psu.edu/
+42 University of Arizona  :http://www.cs.arizona.edu/
+43 University of Colorado Boulder  :http://www.cs.colorado.edu/
+44 University of Iowa  :http://www.cs.uiowa.edu/
+45 Univ. of Maryland College Park  :http://www.cs.umd.edu/
+46 New York University  :http://www.cs.nyu.edu/
+47 University of California Irvine  :http://www.ics.uci.edu/
+48 Michigan State University  :http://www.cse.msu.edu/
+49 University of Florida  :http://www.cise.ufl.edu/
+50 Tufts University (MA)  :http://engineering.tufts.edu/
+51 Brandeis University (MA)  :
+52 Rensselaer Polytechnic Inst. (NY)  :http://www.cs.rpi.edu/
+53 Texas A&M Univ. College Station  :http://www.cs.tamu.edu/
+54 University of Georgia  :http://www.cs.uga.edu/
+55 Boston College  :http://www.cs.bc.edu/
+56 Case Western Reserve Univ. (OH)  :http://www.engineering.case.edu/
+57 Tulane University (LA)  :http://www.tulane.edu/
+58 Univ. of California Santa Barbara  :http://www.cs.ucsb.edu/
+59 Boston University  :http://www.cs.bu.edu/
+60 George Washington University (DC)  :http://www.cs.gwu.edu/
+61 Iowa State University  :http://www.cs.iastate.edu/
+62 Univ. of Missouri Columbia  :http://www.cs.missouri.edu/
+63 University of Oregon  :http://www.cs.uoregon.edu/
+64 University of Pittsburgh  :http://www.cs.pitt.edu/
+65 Virginia Tech  :http://www.cs.vt.edu/
+66 Wake Forest University (NC)  :http://www.cs.wfu.edu/
+67 University of Rochester (NY)  :http://www.cs.rochester.edu/
+68 Miami University Oxford (OH)  :http://www.lib.muohio.edu/
+69 Rutgers New Brunswick (NJ)  :http://www.cs.princeton.edu/
+70 SUNY Stony Brook  :http://www.cs.sunysb.edu/
+71 Syracuse University (NY)  :http://www.ecs.syr.edu/
+72 Univ. of California Santa Cruz  :http://www.cs.ucsc.edu/
+73 University of Kansas  :http://www.eecs.ku.edu/
+74 Univ. of Massachusetts Amherst  :http://www.cs.umass.edu/
+75 Arizona State University  :http://cse.asu.edu/
+76 Baylor University (TX)  :http://www.ecs.baylor.edu/
+77 Florida State University  :http://www.cs.fsu.edu/
+78 North Carolina State U. Raleigh  :http://www.csc.ncsu.edu/
+79 Univ. of California Riverside  :http://www.cs.ucr.edu/
+80 University of Connecticut  :http://www.cse.uconn.edu/
+81 University of Delaware  :http://www.cis.udel.edu/
+82 University of Miami (FL)  :http://www.cs.miami.edu/
+83 Univ. of Nebraska Lincoln  :http://www.cse.unl.edu/
+84 Univ. of Tennessee Knoxville  :http://www.cs.utk.edu/
+85 University of Utah  :http://www.cs.utah.edu/
+86 Lehigh University (PA)  :http://www.cse.lehigh.edu/
+87 Brigham Young Univ. Provo (UT)  :http://www.byu.edu/
+88 Fordham University (NY)  :http://www.cis.fordham.edu/
+89 Ohio University  :http://www.cse.ohio-state.edu/
+90 Southern Methodist University (TX)  :
+91 SUNY University at Buffalo  :http://www.cse.buffalo.edu/
+92 Washington State University  :http://www.eecs.wsu.edu/
+93 University of Illinois Chicago  :http://www.cs.uic.edu/
+94 Pepperdine University (CA)  :
+95 Auburn University (AL)  :
+96 Clemson University (SC)  :http://www.cs.clemson.edu/
+97 Colorado State University  :http://www.cs.colostate.edu/
+98 Illinois Institute of Technology  :http://www.cs.iit.edu/
+99 SUNY Binghamton  :http://watson.binghamton.edu/
+100 University of Alabama  :http://cs.ua.edu/
+101 University of Kentucky  :http://www.cs.uky.edu/
+102 University of Oklahoma  :http://www.cs.ou.edu/
+103 Univ. of South Carolina Columbia  :http://www.cse.sc.edu/
+104 University of Vermont  :http://www.cs.uvm.edu/
+105 George Mason University (VA)  :http://cs.gmu.edu/
+106 Oregon State University  :http://eecs.oregonstate.edu/
+107 University of New Mexico  :http://www.cs.unm.edu/
+108 Yeshiva University (NY)  :http://www.yu.edu/
+109 American University (DC)  :
+110 Clark University (MA)  :
+111 Howard University (DC)  :http://www.scs.howard.edu/
+112 Marquette University (WI)  :
+113 Rutgers Newark (NJ)  :http://math.newark.rutgers.edu/
+114 St. Louis University  :http://euler.slu.edu/
+115 SUNY Albany  :http://www.cs.albany.edu/
+116 University of New Hampshire  :http://www.cs.unh.edu/
+117 University of San Francisco  :http://www.cs.usfca.edu/
+118 Drexel University (PA)  :http://www.cs.drexel.edu/
+119 Kansas State University  :http://www.cis.ksu.edu/
+120 Temple University (PA)  :
+121 University of Alabama Birmingham  :http://www.cis.uab.edu/
+122 Virginia Commonwealth University  :
+123 Indiana U.-Purdue U. Indianapolis  :http://www.cs.iupui.edu/
+124 Univ. of Wisconsin Milwaukee  :http://www.uwm.edu/
+125 Catholic University of America (DC)  :http://www.southeastern.edu/
+126 Loyola University Chicago  :http://cs.luc.edu/
+127 Michigan Technological University  :http://www.cs.mtu.edu/
+128 Texas Christian University  :http://www.cs.tcu.edu/
+129 University of San Diego  :http://www-cse.ucsd.edu/
+130 Worcester Polytechnic Inst. (MA)  :http://www.cs.wpi.edu/
+131 DePaul University (IL)  :http://www.cdm.depaul.edu/
+132 Louisiana State U. Baton Rouge  :http://www.csc.lsu.edu/
+133 New School University (NY)  :http://www.cs.nyu.edu/
+134 Northeastern University (MA)  :http://www.ccs.neu.edu/
+135 St. John's University (NY)  :
+136 U. of Maryland Baltimore County  :http://www.cs.umbc.edu/
+137 University of Rhode Island  :http://www.sportsfoundation.brown.edu/
+138 Wayne State University (MI)  :http://www.cs.wayne.edu/
+139 Georgia State University  :http://www.cs.gsu.edu/
+140 San Diego State University  :http://www.cs.sdsu.edu/
+141 Seton Hall University (NJ)  :http://www.math.shu.edu/
+142 Stevens Institute of Technology (NJ)  :http://www.cs.columbia.edu/
+143 University of Missouri Rolla  :http://cs.mst.edu/
+144 Hofstra University (NY)  :http://www.computerscience.hofstra.edu/
+145 New Jersey Inst. of Technology  :http://www.cs.njit.edu/
+146 Oklahoma State University  :http://www.cs.okstate.edu/
+147 Texas Tech University  :http://www.cs.ttu.edu/
+148 University of Arkansas  :http://www.csce.uark.edu/
+149 University of Cincinnati  :http://www.cs.uc.edu/
+150 University of Idaho  :
+151 University of Mississippi  :http://www.cs.olemiss.edu/
+152 University of Texas Dallas  :http://www.cs.utdallas.edu/
+153 Utah State University  :http://www.cs.usu.edu/
+154 West Virginia University  :http://www.cs.wvu.edu/
+155 Old Dominion University (VA)  :http://www.cs.odu.edu/
+156 University of Colorado Denver  :http://www.cs.colorado.edu/
+157 Clarkson University (NY)  :
+158 Duquesne University (PA)  :
+159 MCP Hahnemann University (PA)  :
+160 SUNY College Environmental Science and Forestry  :
+161 University of Denver  :http://www.cs.du.edu/
+162 Bowling Green State University (OH)  :
+163 New Mexico State University  :http://www.cs.unm.edu/
+164 University of Hawaii Manoa  :http://www.ics.hawaii.edu/
+165 University of Maine Orono  :http://www.umcs.maine.edu/
+166 Univ. of Missouri Kansas City  :http://www.csee.umkc.edu/
+167 U. of North Carolina Greensboro  :
+168 University of South Florida  :http://www.csee.usf.edu/
+169 University of Wyoming  :http://www.cs.uwyo.edu/
+170 Western Michigan University  :http://www.cs.wmich.edu/
+171 Kent State University (OH)  :
+172 Southern Illinois U. Carbondale  :http://www.cs.siu.edu/
+173 University of Houston  :http://www.cs.uh.edu/
+174 University of Louisville (KY)  :
+175 Univ. of Massachusetts Boston  :http://www.cs.umb.edu/
+176 University of Montana  :http://www.cs.umt.edu/
+177 University of Texas Arlington  :http://www.cse.uta.edu/
+178 University of St. Thomas (MN)  :
+179 University of the Pacific (CA)  :
+180 University of Tulsa (OK)  :http://www.mcs.utulsa.edu/
+181 Ball State University (IN)  :
+182 Montana State University Bozeman  :http://www.cs.montana.edu/
+183 N.M. Inst. of Mining and Tech.  :http://www.cs.nmt.edu/
+184 Polytechnic University (NY)  :
+185 University of Alabama Huntsville  :http://www.cs.uah.edu/
+186 University of Alaska Fairbanks  :http://www.cs.uaf.edu/
+187 University of Nevada Reno  :http://www.cse.unr.edu/
+188 University of North Dakota  :http://cs.und.edu/
+189 Indiana State University  :http://math.indstate.edu/
+190 Northern Arizona University  :
+191 Portland State University (OR)  :http://www.cs.pdx.edu/
+192 Univ. of Missouri St. Louis  :http://www.cs.umsl.edu/
+193 University of South Dakota  :
+194 University of Dayton (OH)  :
+195 Clark Atlanta University  :http://www.cis.cau.edu/
+196 Florida Institute of Technology  :http://cs.fit.edu/
+197 Mississippi State University  :http://www.cse.msstate.edu/
+198 Idaho State University  :http://engr.isu.edu/
+199 Illinois State University  :http://www.ilstu.edu/
+200 North Dakota State University  :http://www.cs.ndsu.nodak.edu/
+201 South Dakota State University  :
+202 Texas Woman's University  :
+203 Univ. of Arkansas Little Rock  :
+204 University of Central Florida  :http://www.eecs.ucf.edu/
+205 University of Hartford (CT)  :http://www.cs.hartford.edu/
+206 University of Memphis  :http://www.cs.memphis.edu/
+207 University of Nevada Las Vegas  :http://www.cs.unlv.edu/
+208 University of New Orleans  :http://cs.uno.edu/
+209 University of North Texas  :http://www.cse.unt.edu/
+210 Adelphi University (NY)  :
+211 Pace University (NY)  :http://www.pace.edu/
+212 Univ. of Southern Mississippi  :http://www.cs.usm.edu/
+213 Central Michigan University  :http://www.cps.cmich.edu/
+214 Florida Atlantic University  :http://www.cse.fau.edu/
+215 Florida International University  :http://www.cis.fiu.edu/
+216 Louisiana Tech University  :
+217 Northern Illinois University  :http://www.cs.niu.edu/
+218 Oakland University (MI)  :
+219 Univ. of Massachusetts Lowell  :http://www.cs.uml.edu/
+220 University of Northern Colorado  :http://cs.unco.edu/
+221 University of Texas El Paso  :http://www.cs.utep.edu/
+222 Wichita State University (KS)  :http://www.cs.wichita.edu/
+223 Wright State University (OH)  :http://www.cs.wright.edu/
+224 Indiana Univ. of Pennsylvania  :
+225 East Carolina University (NC)  :http://www.tecs.ecu.edu/
+226 South Carolina State University  :http://cs.scsu.edu/
+227 Texas A&M University Commerce  :http://cs.tamu-commerce.edu/
+228 University of Akron (OH)  :http://www.cs.uakron.edu/
+229 University of South Alabama  :http://www.cis.usouthal.edu/
+230 University of Toledo (OH)  :http://www.utoledo.edu/
+231 Widener University (PA)  :http://www.cs.widener.edu/
+232 Cleveland State University  :http://cis.csuohio.edu/
+233 Middle Tennessee State Univ.  :
+234 Tennessee State University  :http://www.cs.etsu.edu/
+235 Texas A&M Univ. Kingsville  :
+236 University of Louisiana Lafayette  :http://www.cacs.louisiana.edu/
+237 Wilmington College (DE) :http://www.desu.edu/
+238 Andrews University (MI)  :
+239 University of La Verne (CA)  :
+240 East Tennessee State University  :http://www.cs.etsu.edu/
+241 Texas Southern University  :http://itscience.tsu.edu/
+242 Union Institute (OH)  :
+243 Biola University (CA)  :http://csci.biola.edu/
+244 Jackson State University (MS)  :
+245 United States International U. (CA)  :
+246 Alabama A&M University  :
+247 National-Louis University (IL)  :
+248 Nova Southeastern University (FL)  :http://scis.nova.edu/
+249 University of Bridgeport (CT)  :
