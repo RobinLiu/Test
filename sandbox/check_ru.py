@@ -1,4 +1,4 @@
-#!/usr/bin/python
+##!/usr/bin/python
 import os
 from subprocess import Popen, PIPE, STDOUT
 import time
@@ -78,20 +78,27 @@ def check_rg_status(rg_name):
 		print("%-40s NOK"%(rg_name))
 	return status
 
+import re
 def check_clock():
-	p = Popen(["fsclish"], shell=True, stdin=PIPE, stdout=PIPE)
-	time.sleep(1)
-	p.stdin.write("show mgw synchronization inputreference\n")
-	time.sleep(1)
-	p.stdin.write("quit\n")
-	ret = p.stdout.read()
+	try:
+		p = Popen(["fsclish"], shell=False, stdin=PIPE, stdout=PIPE)
+		time.sleep(1)
+		p.stdin.write("show mgw synchronization inputreference\n")
+		time.sleep(1)
+		p.stdin.write("quit\n")
+		ret = p.stdout.read()
+	except IOError:
+		print ("--IOError")
 	print(ret)
-	if ret.find("set-0      -      yes     2    2         2        gen2     5    ok        clk3a     ok            ") == -1:
-		print("Clock not ok!")
-		return False
-	else:
+	r_list = ret.split()
+#	print (r_list)
+	if 'yes' in r_list and 'ok' in r_list:
 		print("Clock is ok")
 		return True
+	else:
+		print("Clock not ok!")
+		return False
+
 #	ret = p.communicate()[0]	
 	
 	
@@ -112,13 +119,10 @@ def check_all():
 	print("Start to check clock setting...")
 	return (check_clock() and ru_result)
 
-
-
-	
-if check_all():
-	print("All Check is ok")
-else:
-	print("Not all check passed, please first check the RU and clock status")
-	
-
+if __name__ == '__main__':
+	if check_all():
+		print("All Check is ok")
+	else:
+		print("Not all check passed, please first check the RU and clock status")
+		
 
