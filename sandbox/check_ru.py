@@ -78,7 +78,6 @@ def check_rg_status(rg_name):
 		print("%-40s NOK"%(rg_name))
 	return status
 
-import re
 def check_clock():
 	try:
 		p = Popen(["fsclish"], shell=False, stdin=PIPE, stdout=PIPE)
@@ -124,5 +123,3 @@ if __name__ == '__main__':
 		print("All Check is ok")
 	else:
 		print("Not all check passed, please first check the RU and clock status")
-		
-

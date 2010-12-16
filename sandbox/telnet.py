@@ -2,10 +2,26 @@
 import getpass
 import telnetlib
 HOST = 'TDMNIP-0'
-tn = telnetlib.Telnet(HOST, 2999)
-tn.read_until("%")
+try:
+	tn = telnetlib.Telnet()
+except IOError :
+	print("err: ")
+if tn:
+	tn.set_debuglevel(10)
+	try:
+		tn.open(HOST, 2999)
+		tn.read_until('%')
+	except Error:
+		print ("error")
+	print("telnet ok")
+else:
+	print("telnet nok")
+#tn.read_until("%")
+print (tn.read_very_eager())
+
+
 tn.write("TDMLIC\n")
-tn.write("?")
+tn.read_until('TDMLIC')
 tn.write("exit\n")
 tn.write("exit\n")
-print(tn.read_all())
+#print(tn.read_all())
