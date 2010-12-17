@@ -73,16 +73,29 @@ def get_human_readable_size(size):
         if size < 1024:
             return '{0:.1f} {1}'.format(size, suffix)
 
-def list_files(dir, file_list):    
-    for root, dirs, files in os.walk(dir):
+def get_parent_dir(dir):
+    drv, folder = os.path.split(dir);
+    return drv, folder
+
+def list_files(check_path, file_list, exclude_list = []):    
+    for root, dirs, files in os.walk(check_path):
         for dir in dirs:
             if(dir.startswith(".")):
-                print("Ignore DIR:" + dir)
+                print("Ignore DIR: " + root+dir)
                 dirs.remove(dir)
+        for path in exclude_list:
+            parent_path, folder = os.path.split(path)
+#            print("parent_path: "+parent_path + " folder: ")
+#            print("root: "+root + " folder: "+folder)
+            
+            if parent_path == root and folder in dirs:
+                print("Ignore Dir: " + path)
+                dirs.remove(folder)
+#                exclude_list.remove(path)
         for file_name in files:
             file_path = ''
             if(file_name.startswith(".")):
-                print("hide files:", file_name)
+                print("hide files:", root + file_name)
             else:
                 file_path = join(root, file_name)
                 add_file_to_list(file_list, file_path, file_name)
@@ -96,25 +109,40 @@ from operator import itemgetter
 def write_file_result(file_path, result_list):
     with open(file_path, 'w') as out_file:
         for file in result_list:
-            out_file.write(file[0] + "\t\t" + file[1] + "\t\t" + get_human_readable_size(file[2]) + "\n")
-#            out_file.write(file)
-            out_file.flush()
-            
+            try:
+                out_file.write(file[0] + "\t\t" + file[1] + "\t\t" + get_human_readable_size(file[2]) + "\n")
+    #            out_file.write(file)
+                out_file.flush()
+            except UnicodeEncodeError as err:
+                print("Write file error: " + str(err))
+
+import time            
 if __name__ == '__main__':
     init_file_list(g_file_list)
 #    list_files('D:/test', g_file_list)
 #    print_duplicate_files(g_duplicate_files)
 #    drivers = ["c:/", "d:/"]
+
+#    exclude_list = ["D:/test/New Folder", "D:/test/New Folder (2)"]
+    exclude_list = ["D:/code"]
     drivers = ["D:/"]
+    print("start time: {}".format(time.asctime()))
+    start_time = time.time()
     for driver in drivers:
-        list_files(driver, g_file_list)
+        list_files(driver, g_file_list, exclude_list)
 #    print(g_duplicate_files)
     r_file.close()    
     print("--------------1--------------")
     r = sorted(g_duplicate_files, key=itemgetter(2), reverse=True)
     write_file_result("c:/r.txt", r)
-    print(r)
+    end_time = time.time()
+    print("End time: {}".format(time.asctime()))
+    print("Use {} seconds".format(end_time - start_time))
+#    print(r)
     print("--------------2--------------")
 
 #TODO: filter .svn folders
 #TODO: add folder to ignore
+
+#drv, left = os.path.split(root);
+#if(file_name.startswith(".")) or left.startswith("."):
