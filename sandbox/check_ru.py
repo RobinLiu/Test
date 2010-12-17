@@ -81,9 +81,9 @@ def check_rg_status(rg_name):
 def check_clock():
 	try:
 		p = Popen(["fsclish"], shell=False, stdin=PIPE, stdout=PIPE)
-		time.sleep(1)
+#		time.sleep(1)
 		p.stdin.write("show mgw synchronization inputreference\n")
-		time.sleep(1)
+#		time.sleep(1)
 		p.stdin.write("quit\n")
 		ret = p.stdout.read()
 	except IOError:

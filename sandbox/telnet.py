@@ -22,6 +22,8 @@ print (tn.read_very_eager())
 
 tn.write("TDMLIC\n")
 tn.read_until('TDMLIC')
+tn.write("disp_file\n")
+tn.read_all()
 tn.write("exit\n")
 tn.write("exit\n")
 #print(tn.read_all())
