@@ -8,13 +8,12 @@ ru_list = [
 			'/TDMNIP-0/MGW_TDMSNIUPFU-0',
 			'/CLA-0/MGW_CMFU-0',
 			'/CLA-0/MGW_SISUFU-0',
-			'/TCU-0/MGW_DSPMRU0-0',
+			'/TCU-0/MGW_DSPMRU0-1',
 			'/CLA-0/MGW_OMUFU-0',
 			'/CLA-0/FSSGWNetMgrServer',
 			'/CLA-0/FSSS7SGUServer'
 ]
 rg_list = [
-			'/MGW_CMRG',
 			'/SGWNetMgr',
 			'/SS7SGU',
 			'/MGW_CMRG',
@@ -49,9 +48,13 @@ def check_result(correct_result, output):
 	error_info = ''
 	result = True
 	for index in range(i):
-		if correct_result[index] != output[index]:
-			error_info ="Status should be: " + correct_result[index] +"But is "+ output[index]
+		try:
+			if correct_result[index] != output[index]:
+				error_info ="\tStatus should be: " + correct_result[index] +"\tBut is "+ output[index]
+				result = False
+		except IndexError:
 			result = False
+			error_info = output
 	return result, error_info
 		
 
@@ -71,11 +74,12 @@ def check_rg_status(rg_name):
 #	print("start to check RG " + rg_name + " ...")
 	cmd = 'fshascli -s ' + rg_name
 	output = os.popen(cmd).readlines()
-	status = check_result(build_correct_result(rg_name), output)
+	status, error_info = check_result(build_correct_result(rg_name), output)
 	if status:
 		print("%-40s OK"%(rg_name))
 	else:
 		print("%-40s NOK"%(rg_name))
+		print(error_info)
 	return status
 
 def check_clock():
@@ -110,7 +114,7 @@ def check_all():
 		if not check_rg_status(rg):
 #			print("RG %s is not ok"%rg)
 			ru_result = False
-	print("Check RU done, next check RU. \nChecking RU...")
+	print("Check RG done, next check RU. \nChecking RU...")
 	for ru in ru_list:
 		if not check_ru_status(ru):
 #			print("RU %s is not ok"%ru)
