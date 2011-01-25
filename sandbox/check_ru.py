@@ -1,28 +1,31 @@
-##!/usr/bin/python
+#!/usr/bin/python
 import os
 from subprocess import Popen, PIPE, STDOUT
 import time
+import re
 
-ru_list = [
-			'/TDMNIP-0/MGW_TDMMGUFU-0',
-			'/TDMNIP-0/MGW_TDMSNIUPFU-0',
-			'/CLA-0/MGW_CMFU-0',
-			'/CLA-0/MGW_SISUFU-0',
-			'/TCU-0/MGW_DSPMRU0-1',
-			'/CLA-0/MGW_OMUFU-0',
-			'/CLA-0/FSSGWNetMgrServer',
-			'/CLA-0/FSSS7SGUServer'
-]
-rg_list = [
-			'/SGWNetMgr',
-			'/SS7SGU',
-			'/MGW_CMRG',
-			'/MGW_OMURG',
-			'/MGW_SISURG-0',
-			'/TDMNIP-0',
-			'/TCU-0',
-			'/CLA-0'
-]
+def get_ru_list(rg_name):
+	ru_list = []
+	cmd = 'fshascli -v ' + rg_name
+	output = os.popen(cmd).readlines()
+	for line in output:
+		m = re.match(r'^RecoveryUnit\s*(\S*)', line)
+		if m:
+			ru_list.append(m.group(1))
+	return ru_list
+
+def get_ru_role(ru_name):
+	role = None
+	cmd = 'fshascli -s ' + ru_name
+	output = os.popen(cmd).readlines()
+	for line in output:
+		m = re.match(r"role\((\S*)\)", line)
+		if m:
+			role = m.group(1)
+	return role
+
+def is_active_ru(ru_name):
+	return "ACTIVE" == get_ru_role(ru_name)
 
 def build_correct_result(ru_name):
 	correct_result = []
@@ -58,7 +61,7 @@ def check_result(correct_result, output):
 	return result, error_info
 		
 
-def check_ru_status(ru_name):
+def check_ru(ru_name):
 #	print("start to check RU " + ru_name + " ...")
 	cmd = 'fshascli -s ' + ru_name
 	output = os.popen(cmd).readlines()
@@ -70,6 +73,14 @@ def check_ru_status(ru_name):
 		print(error_info)
 	return status
 
+def check_ru_status(ru_list):
+	status = True
+	for ru in ru_list:
+		if is_active_ru(ru):
+			status = check_ru(ru) and status
+	return status
+		
+	
 def check_rg_status(rg_name):
 #	print("start to check RG " + rg_name + " ...")
 	cmd = 'fshascli -s ' + rg_name
@@ -77,6 +88,9 @@ def check_rg_status(rg_name):
 	status, error_info = check_result(build_correct_result(rg_name), output)
 	if status:
 		print("%-40s OK"%(rg_name))
+		ru_list = get_ru_list(rg_name)
+		if ru_list:
+			status = check_ru_status(ru_list)
 	else:
 		print("%-40s NOK"%(rg_name))
 		print(error_info)
@@ -104,23 +118,46 @@ def check_clock():
 
 #	ret = p.communicate()[0]	
 	
+def get_node_list():
+	node_list = []
+	cmd = 'hwcli -o off'
+	i = 0
+	output = os.popen(cmd).readlines()
+	for line in output:
+		p = re.compile(r'(TCU-\d|CLA-\d|TDM\S*)\W+\w*\W*(\w*)\W*')
+		m = p.search(line)
+		if m and m.group(2) == "available":
+			node_list.append(m.group(1))
+	return node_list
+
+def check_needed_node(node_list):
+	num_tcu = 0
+	num_tdm = 0
+	num_cla = 0
+	for node in node_list:
+		if node.startswith("TCU"):
+			num_tcu += 1
+		if node.startswith("TDM"):
+			num_tdm += 1
+		if node.startswith("CLA"):
+			num_cla += 1
+	if num_tcu == 0:
+		print "No Working DSP available"
+	if num_tdm == 0:
+		print "No Working TDM available"
+	if num_cla == 0:
+		print "No Working CLA available"
+	return num_tcu and num_cla and num_tdm
 	
 def check_all():
-	global ru_list
-	global rg_list
-	ru_result = True
-	print("Start to check RG...")
-	for rg in rg_list:
-		if not check_rg_status(rg):
-#			print("RG %s is not ok"%rg)
+	node_list = get_node_list()	
+	if not check_needed_node(node_list):
+		print "Please first make the node working!"
+		return
+	for node in node_list:
+		if not check_rg_status("/"+node):
 			ru_result = False
-	print("Check RG done, next check RU. \nChecking RU...")
-	for ru in ru_list:
-		if not check_ru_status(ru):
-#			print("RU %s is not ok"%ru)
-			ru_result = False
-	print("Start to check clock setting...")
-	return (check_clock() and ru_result)
+
 
 if __name__ == '__main__':
 	if check_all():
