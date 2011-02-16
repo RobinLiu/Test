@@ -166,8 +166,8 @@ def check_for_link(node_list_all):
 
 if __name__ == '__main__':
 	node_list = get_node_list()
-	# if check_for_link(node_list):
-	if check_all(node_list):
+	if check_for_link(node_list):
+	#if check_all(node_list):
 		os.system('tail -f /srv/Log/log/syslog | grep srm')
 	else:
 		print("Not all check passed, please first check the RU and clock status")

@@ -17,3 +17,9 @@ if check_for_link(node_list):
 	os.system('tail -f /srv/Log/log/syslog | grep srm')
 else:
 	print("Not all check passed, check it first!!!")
+        print ("Start to create Link......")
+        tcu_list = get_spec_node_list(node_list, "TCU")
+        tdm_list = get_spec_node_list(node_list, "TDM")
+        active_tcu_list = get_active_tcu(tcu_list)
+        clear_all(tdm_list, active_tcu_list)
+        os.system('tail -f /srv/Log/log/syslog | grep srm')

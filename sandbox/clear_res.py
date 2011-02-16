@@ -11,15 +11,17 @@ def clear_tdm_resc(tdm_node):
 	os.system('ssh '+ tdm_node + ' "killall telnet"')
 	try:
 		tn = telnetlib.Telnet()
-	except IOError :
+	except :
 		print("err: ")
+		return
 	if tn:
 		tn.set_debuglevel(10)
 		try:
 			tn.open(tdm_node, 2999)
 			tn.read_until(">")
-		except Error:
+		except:
 			print ("error")
+			return
 		print("telnet ok")
 	else:
 		print("telnet nok")
@@ -40,7 +42,7 @@ def clear_all_tdm_res(tdm_node_list):
 
 def restart_dsp_core(tcu_node):
 	print "Restart TCU:" + tcu_node
-	os.system('ssh '+ tcu_node + ' " node start /root/uda0.0114_1 /tmp/dmp/dsp19.conf 0x0013ffff"')
+	os.system('ssh '+ tcu_node + ' " node start /boot/uda0.out /tmp/dmp/dsp19.conf 0x0013ffff"')
 	os.system('ssh ' + tcu_node +' "node status 0x0013ffff"')
 
 def restart_all_sgw_dsp_core(tcu_node_list):
