@@ -81,16 +81,27 @@ def check_rg_status(rg_name):
 		print(error_info)
 	return status
 
+	'''def get_ru_list(rg_name):
+	ru_list = []
+	cmd = 'fshascli -v ' + rg_name
+	output = os.popen(cmd).readlines()
+	for line in output:
+		m = re.match(r'^RecoveryUnit\s*(\S*)', line)
+		if m:
+			ru_list.append(m.group(1))
+	return ru_list'''
 def check_clock():
-	try:
-		p = Popen(["fsclish"], shell=False, stdin=PIPE, stdout=PIPE)
-#		time.sleep(1)
-		p.stdin.write("show mgw synchronization inputreference\n")
-#		time.sleep(1)
-		p.stdin.write("quit\n")
-		ret = p.stdout.read()
-	except IOError:
-		print ("--IOError")
+	cmd = 'fsclish -c "show mgw synchronization inputreference"'
+	ret = os.popen(cmd).read()
+	'''	try:
+			p = Popen(["fsclish"], shell=False, stdin=PIPE, stdout=PIPE)
+	#		time.sleep(1)
+			p.stdin.write("show mgw synchronization inputreference\n")
+	#		time.sleep(1)
+			p.stdin.write("quit\n")
+			ret = p.stdout.read()
+		except IOError:
+			print ("--IOError")'''
 	print(ret)
 	r_list = ret.split()
 	if 'yes' in r_list and 'ok' in r_list:
