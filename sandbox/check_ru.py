@@ -13,95 +13,80 @@ g_rg_list = [
 			'/Directory',
 ]
 
-def build_correct_result(ru_name):
-	correct_result = []
-	correct_result.append(ru_name + ':\n')
-	correct_result.append('administrative(UNLOCKED)\n')
-	correct_result.append('operational(ENABLED)\n')
-	correct_result.append('usage(ACTIVE)\n')
-	correct_result.append('procedural()\n')
-	correct_result.append('availability()\n')
-	correct_result.append('unknown(FALSE)\n')
-	correct_result.append('alarm()\n')
-	return correct_result
-	
-def build_correct_ru_result(ru_name):
-	correct_result = []
-	correct_result = build_correct_result(ru_name)
-	correct_result.append('role(ACTIVE)\n')
-	return correct_result
-	
-	
-def check_result(correct_result, output):
-	i = len(correct_result)
-	error_info = ''
-	result = True
-	for index in range(i):
-		try:
-			if correct_result[index] != output[index]:
-				error_info ="\tStatus should be: " + correct_result[index] +"\tBut is "+ output[index]
-				result = False
-		except IndexError:
-			result = False
-			error_info = output
-	return result, error_info
-		
+status_dict={
+	"administrative":	"UNLOCKED",
+	"operational":		"ENABLED",
+	"usage":			"ACTIVE",
+	"procedural":		'',
+	"availability":		'',
+	"unknown":			"FALSE",
+	"alarm":			'',
+	"role":				"ACTIVE"
+}
 
-def check_ru(ru_name):
-	cmd = 'fshascli -s ' + ru_name
+def get_mo_status(mo_name):
+	cmd = 'fshascli -s ' + mo_name
 	output = os.popen(cmd).readlines()
-	status, error_info = check_result(build_correct_ru_result(ru_name), output)
+	mo_status = {}
+	for line in output:
+		if len(line) > 1:
+			p = re.compile(r'(\S*)\((\S*)\)')
+			m = p.search(line)
+			if m:
+				mo_status[m.group(1)] = m.group(2)
+	return mo_status
+
+
+def cmp_mo_status(mo_status):
+	ret = True
+	error_info = ''
+	for k, v in mo_status.items():
+		if k != 'role' and status_dict[k] != v :
+			error_info = "    " + k + " should be " + status_dict[k] + " But is " + v
+			ret = False
+			return ret, error_info
+	return ret, error_info
+
+def is_ru_active(mo_status):
+	return 'role' in mo_status and mo_status['role'] == 'ACTIVE'
+
+	
+def check_mo_status(mo_name, mo_status):
+	status, error_info = cmp_mo_status(mo_status)
 	if status:
-		print("%-40s OK"%(ru_name))
+		print("%-40s OK"%(mo_name))
 	else:
-		print("%-40s NOK:"%(ru_name))
+		print("%-40s NOK:"%(mo_name))
 		print(error_info)
 	return status
+		
 
-def check_ru_list(ru_list):
+def check_mo_list(ru_list):
 	status = True
 	for ru in ru_list:
-		if is_active_ru(ru):
-			status = check_ru(ru) and status
+		mo_status = get_mo_status(ru)
+		if is_ru_active(mo_status):
+			status = check_mo_status(ru, mo_status) and status
 	return status
 		
 	
 def check_rg_status(rg_name):
 #	print("start to check RG " + rg_name + " ...")
-	cmd = 'fshascli -s ' + rg_name
-	output = os.popen(cmd).readlines()
-	status, error_info = check_result(build_correct_result(rg_name), output)
+	mo_status = get_mo_status(rg_name)
+	status = check_mo_status(rg_name, mo_status)
+
 	if status:
-		print("%-40s OK"%(rg_name))
 		ru_list = get_ru_list(rg_name)
 		if ru_list:
-			status = check_ru_list(ru_list) and status
+			status = check_mo_list(ru_list) and status
 	else:
-		print("%-40s NOK"%(rg_name))
 		print(error_info)
 	return status
 
-	'''def get_ru_list(rg_name):
-	ru_list = []
-	cmd = 'fshascli -v ' + rg_name
-	output = os.popen(cmd).readlines()
-	for line in output:
-		m = re.match(r'^RecoveryUnit\s*(\S*)', line)
-		if m:
-			ru_list.append(m.group(1))
-	return ru_list'''
+
 def check_clock():
 	cmd = 'fsclish -c "show mgw synchronization inputreference"'
 	ret = os.popen(cmd).read()
-	'''	try:
-			p = Popen(["fsclish"], shell=False, stdin=PIPE, stdout=PIPE)
-	#		time.sleep(1)
-			p.stdin.write("show mgw synchronization inputreference\n")
-	#		time.sleep(1)
-			p.stdin.write("quit\n")
-			ret = p.stdout.read()
-		except IOError:
-			print ("--IOError")'''
 	print(ret)
 	r_list = ret.split()
 	if 'yes' in r_list and 'ok' in r_list:
@@ -175,10 +160,23 @@ def check_for_link(node_list_all):
 	return ret
 
 
+from optparse import OptionParser
+
 if __name__ == '__main__':
-	node_list = get_node_list()
-	if check_for_link(node_list):
-	#if check_all(node_list):
-		os.system('tail -f /srv/Log/log/syslog | grep srm')
-	else:
+    usage = "usage: %prog [options] arg"
+    parser = OptionParser(usage)
+    parser.add_option("-a", "--all",
+                      action="store_true", dest="check_all_flag",
+                      default=False)
+    opts, args = parser.parse_args()
+    node_list = get_node_list()
+    ret = False
+    if(opts.check_all_flag):
+	    ret = check_all(node_list)
+    else:
+        ret = check_for_link(node_list)
+#		os.system('tail -f /srv/Log/log/syslog | grep srm')
+    if ret:
+        print ("Check ok")
+    else:
 		print("Not all check passed, please first check the RU and clock status")
