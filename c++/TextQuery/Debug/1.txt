@@ -1,0 +1,86 @@
+################################################################
+#
+#       Copyright (c) Nokia Siemens Networks 2009
+#
+################################################################
+#
+#       Makefile of SS_ILcommon/mw_timer ### FIXME
+#
+################################################################
+
+include ${VOBTAG}/build/path.mk # Path definitions
+include $(BT)/builtin.mk        # General building definitions
+include $(BT)/stddefs.mk        # Standard definitions for building
+
+#################### System settings ###########################
+
+include ${PRODUCT_ROOT}/build/config.mk
+
+#################### Library ###################################
+
+### FIXME
+LIBRARY = libTslValidator.so
+
+#################### Options ###################################
+
+### FIXME
+CXXLOCALOPTS = -O3 \
+        -DREENTRANT \
+        -D_XOPEN_SOURCE=600 \
+        -Wall
+        
+CLOCALOPTS = -DLINUX_APP
+LOCALDEBUGOPTS = -DA_DEBUGFLAG_EXAMPLE
+LOCALCRELEASEOPTS = -DA_RELEASEFLAG_EXAMPLE
+CINCFLAGS = -I ../include $(PLATFORM_INCDIRS) -I${LIBINCLUDE} \
+            $(PLATFORM_INCDIRS)/SS_LDAP/ \
+            $(PLATFORM_INCDIRS)/I_ConfMgmt/\
+	          -I${FSAPI_INCS} -I$(PRODUCT_ROOT)/include
+
+CINCFLAGS+=$(PLATFORM_INCDIRS) # only if including from FP/IPAL API
+
+#INCFLAGS = -I ../include $(PLATFORM_INCDIRS) \
+            $(PLATFORM_INCDIRS)/SS_LDAP/ \
+            $(PLATFORM_INCDIRS)/I_ConfMgmt/\
+            -I${FSAPI_INCS} -I$(TNSDLINC) -I$(DMXSRV) -I$(DIRLIBGEN) -I${FSAPI_INCS} -I$(PRODUCT_ROOT)/include
+INCFLAGS = -I ../include $(PLATFORM_INCDIRS) -I${LIBINCLUDE} \
+            $(PLATFORM_INCDIRS)/SS_LDAP/ \
+            $(PLATFORM_INCDIRS)/I_ConfMgmt/\
+	          -I${FSAPI_INCS} -I$(PRODUCT_ROOT)/include
+TNSDLIFLAGS=-I$(TNSDLINC) -I$(DMXSRV) -I$(DIRLIBGEN) \
+    -I$(PRODUCT_ROOT)/include            
+INCFLAGS+=-I ${ENV_ROOT}/SS_ILLibgen/include	   
+INCFLAGS+=$(PLATFORM_INCDIRS) # only if including from FP/IPAL API
+INCFLAGS+=-I$ ../common/log_utils
+INCFLAGS+=-I$ ../common/dmx_msg
+
+MKIDTARGETS=./plm.interface.h
+MKIDSRC_plm.interface.h=./plm.interface       
+#################### Objects ###################################
+
+### FIXME
+OBJS = ldap_op.o tsl_op.o tsl_validator.o
+          
+################### Libraries ##################################
+
+# libraries to be built first
+### FIXME
+#LIBRARIES = ../../SyncCommon/build/libHwSyncCommon.so
+
+### FIXME
+APPLIBS = -L${PRODUCT_ROOT}/lib \
+$(PLATFORM_LIBDIRS) -lrtllib -lilsetfu \
+$(PLATFORM_LIBDIRS) -L../lib -lLogUtils -lcdmxmsg
+
+################### Target #####################################
+
+all:mkid lib
+#PROGRAM = test
+#all: build
+################### Default Targets ############################
+
+include $(BT)/stdtargets.mk	# Compiling target for C++ code
+include $(BT)/tnsdl.mk		# TNSDL-related targets
+include $(BT)/rpm.mk		# RPM targets
+################### End of File ################################
+
