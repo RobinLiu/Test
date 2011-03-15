@@ -4,13 +4,13 @@
 #
 #----------
 #---- Outputs ----#
-COMPONENT_NAME = gtest
+PROGRAM_NAME = gtest
 GTEST_DIR = ../../googletest
 SRC_DIRS = ../src
 TEST_SRC_DIRS = ./
 SRC_INC_DIR = $(SRC_DIRS)
 
-
+MAIN_FILE = $(SRC_DIRS)/main.cpp
 #################### Google settings ###########################
 
 CPPFLAGS += -I$(GTEST_DIR)/include
@@ -23,8 +23,8 @@ GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 #Set this to @ to keep the makefile quiet
 #SILENCE = @
 
-TARGET_LIB = lib$(COMPONENT_NAME).a
-TEST_TARGET = $(COMPONENT_NAME)_tests
+TARGET_LIB = lib$(PROGRAM_NAME).a
+TEST_TARGET = $(PROGRAM_NAME)_tests
 
 CPPFLAGS += -g -I $(GTEST_DIR)/include
 CFLAGS += -Werror
@@ -65,13 +65,17 @@ src_to_d = $(subst .c,.d, $(subst .cpp,.d,$(subst .cc,.d,$1)))
 src_to = $(subst .c,$1, $(subst .cpp,$1,$2))
 
 #Derived 
-SRC = $(call get_src_from_dir_list, $(SRC_DIRS))				        
+RSRC = $(call get_src_from_dir_list, $(SRC_DIRS))
+SRC = $(filter-out $(MAIN_FILE), $(RSRC))
+       
 OBJ = $(call src_to_o,$(SRC))
+ROBJ = $(call src_to_o,$(RSRC))
 
 TEST_SRC = $(call get_src_from_dir_list, $(TEST_SRC_DIRS))
 TEST_OBJS = $(call src_to_o,$(TEST_SRC))
 
 ALL_SRC   = $(SRC) $(TEST_SRC)
+
 
 #DEP_FILES = $(call move_file_location,$(call src_to_d, $(ALL_SRC))) 
 DEP_FILES = $(call src_to_d, $(ALL_SRC))
@@ -98,7 +102,7 @@ RUN_TEST_TARGET = $(SILENCE)  $(GCOV_CLEAN) ; echo "Running $(TEST_TARGET)"; ./$
 
 # Targets
 .PHONY:  all
-all: gtest_main.a $(TEST_TARGET) 
+all: gtest_main.a $(TEST_TARGET) $(PROGRAM_NAME)
 	$(RUN_TEST_TARGET)
 
 gtest-all.o : $(GTEST_SRCS_)
@@ -126,9 +130,15 @@ flags:
 	done
 	
 $(TEST_TARGET): $(TEST_OBJS) $(TARGET_LIB) 
+	echo $(SRC)		 
 	$(SILENCE)echo Linking $@
 	$(SILENCE)$(CXX) $(CPPFLAGS) $^ $(LDFLAGS) -o $@
-
+	
+$(PROGRAM_NAME): $(ROBJ) 
+	echo $(SRC)		 
+	$(SILENCE)echo Linking $@
+	$(SILENCE)$(CXX) $(CPPFLAGS) $^ $(LDFLAGS) -o $@
+	
 $(TARGET_LIB): $(OBJ)
 	$(SILENCE)echo Building archive $@
 	$(SILENCE)$(AR) $(ARFLAGS) $@ $^
@@ -174,7 +184,7 @@ clean:
 		$(GCOV_REPORT)\
 		$(GCOV_OUTPUT)\
 		$(TEST_OUTPUT)\
-		gtest.a gtest_main.a *.o $(SRC_DIRS)/*.o
+		gtest.a gtest_main.a *.o $(SRC_DIRS)/*.o $(PROGRAM_NAME)
 		
 	$(SILENCE)find ../ -name \*.gcov | xargs rm -f
 	$(SILENCE)find ../ -name \*.gcno | xargs rm -f
