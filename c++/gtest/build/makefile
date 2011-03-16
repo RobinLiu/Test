@@ -38,23 +38,7 @@ INCLUDES =\
     -I $(GTEST_DIR)/include \
     -I $(SRC_INC_DIR)
 
-LDFLAGS += gtest_main.a -lstdc++ -lrt 
-
-#include ./ComponentMakefile
-
-#---------
-#
-# ComponentMakefile
-#
-# Include this file in your makefile
-# It makes
-#    A static library
-#    A test executable
-#
-# The necessary parameters are shown in 
-#    ComponentMakefileExampleParameters
-#
-#----------
+LDFLAGS += gtest_main.a -lstdc++ -lrt
 
 #Helper Functions
 get_src_from_dir  = $(wildcard $1/*.cpp)  $(wildcard $1/*.cc) $(wildcard $1/*.c$)
@@ -102,7 +86,7 @@ RUN_TEST_TARGET = $(SILENCE)  $(GCOV_CLEAN) ; echo "Running $(TEST_TARGET)"; ./$
 
 # Targets
 .PHONY:  all
-all: gtest_main.a $(TEST_TARGET) $(PROGRAM_NAME)
+all: $(TEST_TARGET) $(PROGRAM_NAME)
 	$(RUN_TEST_TARGET)
 
 gtest-all.o : $(GTEST_SRCS_)
@@ -129,7 +113,7 @@ flags:
 		echo "    C   $$f" ; \
 	done
 	
-$(TEST_TARGET): $(TEST_OBJS) $(TARGET_LIB) 
+$(TEST_TARGET): gtest_main.a $(TEST_OBJS) $(TARGET_LIB) 
 	echo $(SRC)		 
 	$(SILENCE)echo Linking $@
 	$(SILENCE)$(CXX) $(CPPFLAGS) $^ $(LDFLAGS) -o $@
@@ -143,10 +127,10 @@ $(TARGET_LIB): $(OBJ)
 	$(SILENCE)echo Building archive $@
 	$(SILENCE)$(AR) $(ARFLAGS) $@ $^
 
-test: $(TEST_TARGET)
+test: $(TEST_TARGET) gtest_main.a
 	$(RUN_TEST_TARGET) | tee $(TEST_OUTPUT)
 	
-vtest: $(TEST_TARGET)
+vtest: $(TEST_TARGET) gtest_main.a
 	$(RUN_TEST_TARGET) -v  | tee $(TEST_OUTPUT)
 
 %.o: %.cpp
