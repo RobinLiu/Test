@@ -14,7 +14,8 @@
 typedef void (*SORT_FUNC)(int* a, int len);
 
 void print_array(int* a, int len);
-
+int get_random_number(void);
+int get_random_number_between(int start, int end);
 void test_sort(SORT_FUNC sort_func);
 
 void random_test(SORT_FUNC sort_func, std::string func_name);

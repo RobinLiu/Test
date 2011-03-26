@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <vector>
 #include <algorithm>
+#include <time.h>
 
 using namespace std;
 
@@ -21,6 +22,25 @@ void print_array(int* a, int len)
 		cout<<a[i]<<"\t";
 	}
 	cout<<endl;
+}
+
+int get_random_number(void)
+{
+	static bool is_set_seed = false;
+	if(!is_set_seed)
+	{
+		time_t seconds;
+		time(&seconds);
+		srand((unsigned int) seconds);
+		is_set_seed = true;
+	}
+	return rand();
+}
+
+int get_random_number_between(int start, int end)
+{
+	int low = start<=end?start:end;
+	return (get_random_number()%(abs(end - start) + 1) + low);
 }
 
 void test_sort(SORT_FUNC sort_func)
@@ -54,7 +74,7 @@ void contrast_print(vector<int>& vlist, int *a)
 }
 int _random_test(SORT_FUNC sort_func)
 {
-	int len = rand();
+	int len = get_random_number();
 	int* a = new int[len];
 	if (NULL == a)
 	{
@@ -64,7 +84,7 @@ int _random_test(SORT_FUNC sort_func)
 	vector<int> vlist;
 	for(int i = 0; i < len; ++i)
 	{
-		int tmp = rand();
+		int tmp = get_random_number();
 		a[i] = tmp;
 		vlist.push_back(tmp);
 	}
@@ -101,12 +121,16 @@ void random_test(SORT_FUNC sort_func, string func_name)
 
 void huge_sort_test(SORT_FUNC sort_func, string func_name)
 {
-	int i = rand();
-	cout<<"rand is "<<i<<endl;
-	for(; i>= 0; --i)
+	time_t time_start;
+	time_t time_end;
+	time(&time_start);
+	int test_time = get_random_number_between(1, /*RAND_MAX*/100);
+	for(int i = test_time; i>= 0; --i)
 	{
 		random_test(sort_func, func_name);
 	}
+	time(&time_end);
+	cout<<"Test "<<test_time<<" times for "<<func_name<<" done, using "<<time_end - time_start<<" seconds"<<endl;
 }
 
 

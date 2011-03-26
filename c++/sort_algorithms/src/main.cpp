@@ -12,6 +12,7 @@ using namespace std;
 
 int main()
 {
+
 //	test_sort(insert_sort);
 //	test_sort(bubble_sort);
 //	test_sort(merge_sort);
@@ -19,7 +20,7 @@ int main()
 //	test_sort(quicksort);
 //	test_sort(randomized_quicksort);
 //	random_test(insert_sort);
-//	random_test(bubble_sort);
+//	random_test(bubble_sort, "bubble_sort");
 //	random_test(merge_sort);
 //	random_test(heap_sort);
 //	random_test(quicksort);
@@ -31,7 +32,5 @@ int main()
 	HUGE_SORT_TEST(heap_sort);
 	HUGE_SORT_TEST(quicksort);
 	HUGE_SORT_TEST(randomized_quicksort);
-
-//	HUGE_SORT_TEST(insert_sort);
 	return 0;
 }
