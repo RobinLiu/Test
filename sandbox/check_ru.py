@@ -42,7 +42,7 @@ def cmp_mo_status(mo_status):
 	error_info = ''
 	for k, v in mo_status.items():
 		if k != 'role' and status_dict[k] != v :
-			error_info = "    " + k + " should be " + status_dict[k] + " But is " + v
+			error_info = "    " + k + " should be \"" + status_dict[k] + "\" But is \"" + v +"\""
 			ret = False
 			return ret, error_info
 	return ret, error_info
@@ -79,8 +79,6 @@ def check_rg_status(rg_name):
 		ru_list = get_ru_list(rg_name)
 		if ru_list:
 			status = check_mo_list(ru_list) and status
-	else:
-		print(error_info)
 	return status
 
 

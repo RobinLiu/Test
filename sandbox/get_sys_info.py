@@ -28,7 +28,7 @@ def is_active_ru(ru_name):
 
 def get_node_list():
 	node_list = []
-	cmd = 'hwcli -o off'
+	cmd = "hwcli -e '^[^d]' -o off"
 	i = 0
 	output = os.popen(cmd).readlines()
 	for line in output:
