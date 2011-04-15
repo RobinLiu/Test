@@ -4,7 +4,6 @@ import getopt
 import os
 import string
 import re
-#from time import sleep => sleep(10)
 import subprocess
 import shlex
 import tarfile, zipfile
@@ -114,8 +113,6 @@ def printMonMenu():
 #        pid_index = pid_index + 1
 
     print"\n     Press key 'f' to finish the log collection"
-
-
 
 
 ###########################################################################
@@ -253,7 +250,6 @@ def tar_zip(stamp, target_folder):
         print"\n-------------------------------------------------------------------------------"
         os.remove(target_folder + stamp + ".tar") #you do not need tar no longer
         remove_files()
-
     return
 
 
@@ -268,7 +264,6 @@ def remove_files():
                 print"remove_files():File", filu, "not found!"
             except:
                 print "remove_files Error:", sys.exc_info()[0]
-
     return
 
 def main():
@@ -283,5 +278,3 @@ def main():
 	
 if __name__ == '__main__':
     main()
-
-    
