@@ -38,7 +38,6 @@ class rbtree(object):
     A red black tree. See Cormen, Leiserson, Rivest, Stein 2nd edition pg 273.
     """
     
-    
     def __init__(self, create_node=rbnode):
         "Construct."
         
@@ -234,8 +233,6 @@ class rbtree(object):
                 
         num_black, is_ok = is_red_black_node(self.root)
         return is_ok and not self.root._red
-                
-
 
 
 def write_tree_as_dot(t, f, show_nil=False):
