@@ -251,22 +251,20 @@ def write_tree_as_dot(t, f, show_nil=False):
     
     def visit_node(node):
         "Visit a node."
-        print >> f, "  %s [label=\"%s\", color=\"%s\"];" % (node_id(node), node, node_color(node))
+        print("  %s [label=\"%s\", color=\"%s\"];" % (node_id(node), node, node_color(node)), file=f)
         if node.left:
             if node.left != t.nil or show_nil:
                 visit_node(node.left)
-                print >> f, "  %s -> %s ;" % (node_id(node), node_id(node.left))
+                print("  %s -> %s ;" % (node_id(node), node_id(node.left)), file=f)
         if node.right:
             if node.right != t.nil or show_nil:
                 visit_node(node.right)
-                print >> f, "  %s -> %s ;" % (node_id(node), node_id(node.right))
+                print("  %s -> %s ;" % (node_id(node), node_id(node.right)), file=f)
              
-    print >> f, "// Created by rbtree.write_dot()"
-    print >> f, "digraph red_black_tree {"
+    print("// Created by rbtree.write_dot()", file=f)
+    print("digraph red_black_tree {", file=f)
     visit_node(t.root)
-    print >> f, "}"
-
-
+    print("}", file=f)
 
 
 def test_tree(t, keys):
