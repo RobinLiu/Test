@@ -36,12 +36,23 @@ int main(int argc, char** argv)
 	node = tree_search(root, 9);
 	if(NULL != node)
 	{
-		cout<<"key 7 is "<<node->key<<endl;
+		cout<<"key 9 is "<<node->key<<endl;
 	}
 	Node* tmp = tree_successor(node);
 	if(NULL != node)
 	{
-		cout<<"successor of 7 is "<<tmp->key<<endl;
+		cout<<"successor of 9 is "<<tmp->key<<endl;
+	}
+	tmp = tree_maximum(root);
+	if(NULL != node)
+	{
+		cout<<"max is "<<tmp->key<<endl;
+	}
+
+	tmp = iterative_tree_search(root, 9);
+	if(NULL != node)
+	{
+		cout<<"search 9 is "<<tmp->key<<endl;
 	}
 	return 0;
 }
