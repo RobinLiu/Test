@@ -147,6 +147,18 @@ void tree_insert(BST* root, Node* node)
 	}
 }
 
+void delete_tree(BST* root)
+{
+	if(NULL == root || NULL == *root)
+		return;
+	Node* &tmp = *root;
+	delete_tree(&tmp->right);
+	delete_tree(&tmp->left);
+	delete tmp;
+	tmp = NULL;
+//	*root = NULL;
+}
+
 void transplant(BST* root, Node* oldnode, Node* newnode)
 {
 	if(oldnode == NULL)
@@ -186,4 +198,6 @@ void tree_delete(BST* root, Node* z)
 		y->left = z->left;
 		y->left->parent = y;
 	}
+	delete z;
+	z = NULL;
 }

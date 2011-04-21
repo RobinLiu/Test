@@ -59,5 +59,9 @@ int main(int argc, char** argv)
 	tmp = tmp = iterative_tree_search(root, 7);
 	tree_delete(&root, tmp);
 	inorder_tree_walk(root);
+	cout<<endl;
+	delete_tree(&root);
+	inorder_tree_walk(root);
+	cout<<endl;
 	return 0;
 }

@@ -35,4 +35,6 @@ void transplant(BST* root, Node* u, Node* v);
 
 void tree_delete(BST* root, Node* z);
 
+void delete_tree(BST* root);
+
 #endif /* BST_H_ */
