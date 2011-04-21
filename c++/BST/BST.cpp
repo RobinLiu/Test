@@ -147,12 +147,43 @@ void tree_insert(BST* root, Node* node)
 	}
 }
 
-void transplant(BST root, Node* u, Node* v)
+void transplant(BST* root, Node* oldnode, Node* newnode)
 {
-
+	if(oldnode == NULL)
+		return;
+	if(NULL == oldnode->parent)
+	{
+		*root = newnode;
+	}
+	else if(oldnode == oldnode->parent->left)
+		oldnode->parent->left = newnode;
+	else
+		oldnode->parent->right = newnode;
+	if(NULL != newnode)
+		newnode->parent = oldnode->parent;
 }
 
-void tree_delete(BST root, Node* z)
+void tree_delete(BST* root, Node* z)
 {
-
+	if(NULL == z)
+		return;
+	if(NULL == z->left)
+		transplant(root, z, z->right);
+	else if (NULL == z->right)
+	{
+		transplant(root, z, z->left);
+	}
+	else
+	{
+		Node* y = tree_minimum(*root);
+		if(z != y->parent)
+		{
+			transplant(root, y, y->right);
+			y->right = z->right;
+			y->right->parent = y;
+		}
+		transplant(root, z, y);
+		y->left = z->left;
+		y->left->parent = y;
+	}
 }

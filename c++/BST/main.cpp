@@ -32,7 +32,9 @@ int main(int argc, char** argv)
 	tree_insert(&root, reserve_node(8));
 	tree_insert(&root, reserve_node(13));
 	inorder_tree_walk(root);
+	cout<<endl;
 	Node* node = NULL;
+
 	node = tree_search(root, 9);
 	if(NULL != node)
 	{
@@ -54,5 +56,8 @@ int main(int argc, char** argv)
 	{
 		cout<<"search 9 is "<<tmp->key<<endl;
 	}
+	tmp = tmp = iterative_tree_search(root, 7);
+	tree_delete(&root, tmp);
+	inorder_tree_walk(root);
 	return 0;
 }

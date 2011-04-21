@@ -31,8 +31,8 @@ Node* tree_successor(Node* node);
 
 void tree_insert(BST* root, Node* node);
 
-void transplant(BST root, Node* u, Node* v);
+void transplant(BST* root, Node* u, Node* v);
 
-void tree_delete(BST root, Node* z);
+void tree_delete(BST* root, Node* z);
 
 #endif /* BST_H_ */
