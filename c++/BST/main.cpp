@@ -38,7 +38,6 @@ int main(int argc, char** argv)
 	{
 		cout<<"key 7 is "<<node->key<<endl;
 	}
-//	Node * tmp = reserve_node(9);
 	Node* tmp = tree_successor(node);
 	if(NULL != node)
 	{
