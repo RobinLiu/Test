@@ -31,8 +31,8 @@ class FolderTree:
                 subFT = FolderTree(subdir, root)
                 self.add_child(subFT)
                 files_size += subFT.get_folder_size()
-            self.folder_size = files_size    
-            return files_size
+        self.folder_size = files_size    
+        return files_size
 
 def print_one(FB):
     print(FB.path, ": ", get_human_readable_size(FB.folder_size))
@@ -94,10 +94,10 @@ class dir(object):
         print ("ok")
         f.close()
         
-if __name__ == '__main__':
-    d = dir()
-    d.getDirList("c:/python25") # input directory
-    d.writeList("c:/1.txt") # write to file
+#if __name__ == '__main__':
+#    d = dir()
+#    d.getDirList("c:/python25") # input directory
+#    d.writeList("c:/1.txt") # write to file
 
 import codecs
 
@@ -125,9 +125,75 @@ def getCharSet( data ):
         except: 
             pass 
     return "Unknow" 
+
+def add_file_to_list(file_list, file_path):
+    file_size = 0
+    try:
+        file_size = getsize(file_path)
+    except Exception as err:
+        print("Excetion while getsize:" + str(err))
+    if file_size not in file_list:
+        file_list[file_size]= [file_path];
+    else:
+        o_list = file_list[file_size]
+        o_list.append(file_path)
+        file_list[file_size]= o_list
+
+def get_file_info(check_path, file_list):
+    for root, dirs, files in os.walk(check_path):
+        for dir in dirs:
+            if(dir.startswith(".")):
+                print("Ignore DIR: " + join(root, dir))
+                dirs.remove(dir)
+        for file in files:
+            file_path = ''
+            if(file.startswith(".")):
+                print("hide files:", join(root, file))
+            else:
+                file_path = join(root, file)
+                add_file_to_list(file_list, file_path)    
+
+def print_suspect_dpfile(file_list):
+    for file_size, files in file_list.items():
+        if(len(files)>1) and cmp_in_list(files):
+            print("%s"%(file_size))
+            print("------------------------------------")
+#            for file in files:
+#                print("\t\t%s"%(file))
+                
+
+def cmp_file_name(path1, path2):
+    head1, file1= os.path.split(path1)
+    head2, file2= os.path.split(path2)
+    return file1 == file2
+
+def cmp_in_list(file_list):
+    if(len(file_list)<=1):
+        return None
+    result = False
+    l = len(file_list)
+    j = 0
+    i = 0
+    
+    while i <l:
+        j = i+1
+        while j < l:
+#            print("i %s, j %s"%(i, j))
+            if cmp_file_name(file_list[i], file_list[j]):
+                print("\n%s\n%s\n"%(file_list[i], file_list[j]))
+                result = True
+            j = j + 1
+        i = i + 1
+                
+    return result        
+    
             
-#if __name__ == '__main__':
-#    ft = FolderTree("D:\\reliu\\Desktop\\tmp\\", None)
-#    ft.get_folder_size()
-#    print_folder(ft, 4)
+if __name__ == '__main__':
+    check_path = "D:\\db\\Tech"
+    file_list = {}
+    get_file_info(check_path, file_list)
+    print_suspect_dpfile(file_list)
+#    print("size: %s"%os.path.getsize(check_path))
+        
+        
     
