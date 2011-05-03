@@ -15,11 +15,10 @@ file_list = []
 size_of_msg_buffer = 0 #YOU MAY MANUALLY EDIT this value; 0 = disable manual buffer size, using monster default 1024kB
 log_path = "/var/log/" #The path where logs are fetched
 target_folder = '/var/tmp/'
-prbs = {'srm':'a26',
-        'lemana': '744',
-        'uhaprb': '646'
+prbs = {'srm'   :   'a26',
+        'lemana':   '744',
+        'uhaprb':   '646'
        }
-
 
 class _Getch:
     def __init__(self):
@@ -270,7 +269,6 @@ def main():
     stamp = getTimeStamp()
     clusterId = getClusterId()
     addr = getCMaddr()
-    
     msg_mon(prbs, stamp, clusterId, target_folder, addr)
     msgMonMenu()
     grep_logs(prbs, stamp, clusterId, target_folder)
