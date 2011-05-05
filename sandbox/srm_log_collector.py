@@ -9,11 +9,14 @@ import shlex
 import tarfile, zipfile
 import platform
 from datetime import *
+import getopt
 
 pid_list = []
 file_list = []
 size_of_msg_buffer = 0 #YOU MAY MANUALLY EDIT this value; 0 = disable manual buffer size, using monster default 1024kB
 log_path = "/var/log/" #The path where logs are fetched
+script_file_path = '/var/tmp/set_srm_log.sh'
+
 target_folder = '/var/tmp/'
 prbs = {'srm'   :   'a26',
         'lemana':   '744',
@@ -77,9 +80,10 @@ def getCMaddr():
 	for line in ret:
 		m = re.match(r'CM-\d\s*(\S*)\s*(\S*)\s*WO-EX', line)
 		if m:
-			cm_addr_list = m.group(2)
+			cm_log_addr = m.group(1)
+			cm_phy_addr = m.group(2)
 #			print "CM phy addr is " + cm_addr_list
-			return cm_addr_list
+			return cm_log_addr, cm_phy_addr
 	return None
 
 	
@@ -265,14 +269,104 @@ def remove_files():
                 print "remove_files Error:", sys.exc_info()[0]
     return
 
-def main():
+def gen_scritp_file(cm_phy_addr, log_level):
+	s_file = open(script_file_path, 'w')
+	s_file.write('export GET_CONFIG="/etc/LibgenConfig_CM.ini"\n')
+	line = "export LIBGEN_USE_PHYS_ADDR=%s\n"%(cm_phy_addr)
+	s_file.write(line)
+	line = "dmxsend -- -h 1A,*,a26,00,00,00,00,6034,00 -b 1,%s\n"%(log_level)
+	s_file.write(line)
+	line = "dmxsend -- -h 1A,*,a27,00,00,00,00,6034,00 -b 1,%s\n"%(log_level)
+	s_file.write(line)
+	s_file.close()
+
+def exec_script():
+	cmd = "chmod u+x " + script_file_path
+	os.system(cmd)
+	os.system(script_file_path)
+	cmd = "rm -f %s"%(script_file_path)
+	os.system(cmd)
+	
+
+def set_log_level(cm_phy_addr, log_level):
+	gen_scritp_file(cm_phy_addr, log_level)
+	exec_script()
+
+def collect_all(cm_log_addr):
     stamp = getTimeStamp()
     clusterId = getClusterId()
-    addr = getCMaddr()
-    msg_mon(prbs, stamp, clusterId, target_folder, addr)
+    
+    msg_mon(prbs, stamp, clusterId, target_folder, cm_log_addr)
     msgMonMenu()
     grep_logs(prbs, stamp, clusterId, target_folder)
     tar_zip(stamp, target_folder)
+
+def print_usage(prb_name):
+	print "Usage:"
+	print "%s [option]"%(prb_name)
+	print "\t -c collect SRM log"
+	print "\t -s[level]"
+	print "\t[--log_level=level] set SRM log level 1. error_log; 2. warning_log; 3. debug_log; 0. disable log"
+	print "\t -m monitor DMX message"
+	print "\t -a collect both log and DMX message"
+
+def main():
+	own_name = sys.argv[0]
+	if len(sys.argv) == 1:
+		print_usage(own_name)
+		sys.exit()
+	try:
+		opts, args = getopt.getopt(sys.argv[1:], "hcmas:", ["help", "log_level="])
+	except getopt.GetoptError:
+		print_usage(own_name)
+		sys.exit()
+	log_level = 1
+	collect_log = False
+	collect_msg = False
+	collect_all_info = False
+	set_log     = False
+	for o, a in opts:
+		if o in ("-h", "--help"):
+			print_usage(own_name)
+			sys.exit()
+		if o == "-c":
+			collect_log = True
+			print "collect_log"
+		if o == "-m":
+			print "moniter message"
+			collect_msg = True
+		if o == "-a":
+			print "collect all information"
+			collect_all_info = True
+		if o in ("-s", "--log_level"):
+			if a is None or len(a) == 0:
+				print_usage(own_name)
+				sys.exit()
+			set_log = True
+			log_level = a
+			print "log level set to %s"%(log_level)
+	
+	cm_log_addr, cm_phy_addr = getCMaddr()
+	print "cm_log_addr %s, cm_phy_addr %s"%(cm_log_addr, cm_phy_addr)
+	if collect_all_info:
+		set_log_level(cm_phy_addr, 3)
+		collect_all(cm_log_addr)
+		set_log_level(cm_phy_addr, 1)
+	elif set_log:
+		set_log_level(cm_phy_addr, log_level)
+	elif collect_msg:
+		stamp = getTimeStamp()
+		clusterId = getClusterId()
+		msg_mon(prbs, stamp, clusterId, target_folder, cm_log_addr)
+		msgMonMenu()
+	elif collect_log:
+		stamp = getTimeStamp()
+		clusterId = getClusterId()
+		grep_logs(prbs, stamp, clusterId, target_folder)
+		tar_zip(stamp, target_folder)
+
+
 	
 if __name__ == '__main__':
-    main()
+	main()
+		
