@@ -32,5 +32,9 @@ int main(int argc, char* argv[]) {
     testThread* b = new testThread();
     a->start();
     b->start();
+	
+	while(1) {
+	sleep(1);
+	}
     return 0;
 }
