@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <cerrno>
 #include <iostream>
+
 namespace HAUtils {
 
 Mutex::Mutex()
@@ -38,12 +39,12 @@ void Mutex::lock() throw(MutexException) {
 
     if (pthread_equal(theThread, thread_) != 0) {
         ++nest_;
-		DBG <<"thread " << theThread <<" lock mutex " << (void*)&mutex_<<" ok\n";
+        LOG(INFO) <<"thread " << theThread <<" lock mutex " << (void*)&mutex_<<" ok\n";
     } else {
         if (pthread_mutex_lock(&mutex_) == 0) {
             thread_ = theThread;
             nest_ = 0;
-			DBG <<"thread " << theThread <<" lock mutex " << (void*)&mutex_<<" ok\n";
+			LOG(INFO) <<"thread " << theThread <<" lock mutex " << (void*)&mutex_<<" ok\n";
         } else {
             //			abort();
             throw MutexException("pthread_mutex_lock failed");
@@ -62,14 +63,14 @@ void Mutex::unlock() throw (MutexException) {
         abort();
     }
     if (nest_ > 0) {
-	    DBG <<"thread " << theThread <<" unlock mutex " << (void*)&mutex_<<" ok";
+        LOG(INFO) <<"thread " << theThread <<" unlock mutex " << (void*)&mutex_<<" ok";
         --nest_;
     } else {
         thread_ = 0;
         if (pthread_mutex_unlock(&mutex_) != 0) {
             throw MutexException("pthread_mutex_unlock failed");
         }
-		DBG <<"thread " << theThread <<" unlock mutex " << (void*)&mutex_<<" ok\n";
+        LOG(INFO) <<"thread " << theThread <<" unlock mutex " << (void*)&mutex_<<" ok\n";
     }
 }
 

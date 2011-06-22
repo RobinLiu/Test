@@ -8,9 +8,13 @@
 
 #include "MutexHolder.h"
 #include <iostream>
+#include <unistd.h>
+#include "glog/logging.h"
 
 HAUtils::Mutex theMutex;
 using namespace std;
-int main(void) {
-	{HAUtils::MutexHolder mh(theMutex);}
+int main(int argc, char* argv[]) {
+    google::InitGoogleLogging(argv[0]);
+    {HAUtils::MutexHolder mh(theMutex);}
+    return 0;
 }
