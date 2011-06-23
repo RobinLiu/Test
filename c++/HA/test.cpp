@@ -36,11 +36,15 @@ int main(int argc, char* argv[]) {
     google::InitGoogleLogging(argv[0]);
     TimeLib::TimerManager* timerMgr = TimeLib::TimerManager::getInstance();
     tmh tm;
+    tmh tm2;
+    int tId = timerMgr->registerTimeout(5000000, &tm);
+    sleep(2);
+    timerMgr->cancelTimeout(&tm);
     {HAUtils::MutexHolder mh(theMutex);}
     testThread* a = new testThread();
     testThread* b = new testThread();
-    a->start();
-    b->start();
+//    a->start();
+//    b->start();
 	
 	while(1) {
 	sleep(1);

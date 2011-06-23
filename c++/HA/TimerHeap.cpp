@@ -140,11 +140,10 @@ void TimerHeap::cancel(int timerId, TimeValue* timeValue) {
     }
 
     TimerNode* temp = remove(timerNodeSlot);
-    //ISSU change start
+
     if (timeValue && temp) {
         *timeValue = temp->getTimerValue();
     }
-    //ISSU change end
     freeNode(temp);
 }
 
@@ -371,24 +370,6 @@ TimerHeapIterator& TimerHeap::iter(void) {
 
 void TimerHeap::dump(void) const {
 
-    /*
-     FCOMMON_TRACER_TRACER (0) << "Maximum Size = " << maxSize << endl;
-     FCOMMON_TRACER_TRACER (0) << "Current Size = " << currentSize << endl;
-     FCOMMON_TRACER_TRACER (0) << "Allocation Threshold = " << allocationThreshold << endl;
-
-     for (unsigned int i = 0; i < currentSize; i++)
-     {
-     FCOMMON_TRACER_TRACER (0) << "--------------------" << endl;
-     heap[i]->dump();
-     }
-
-     FCOMMON_TRACER_TRACER (0) << "timerIds = ";
-
-     for (unsigned int j = 0; j < currentSize; j++)
-     FCOMMON_TRACER_TRACER (0) << " " << timerIds[j];
-
-     FCOMMON_TRACER_TRACER (0) << endl;
-     */
 }
 
 int TimerHeap::isEmpty(void) const {

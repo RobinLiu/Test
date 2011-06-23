@@ -8,7 +8,6 @@
 #ifndef TIMEOUTHANDLER_H_
 #define TIMEOUTHANDLER_H_
 #include <cstring>
-#include <stdint.h>
 
 #include "TimerManager.h"
 namespace TimeLib {
