@@ -30,10 +30,11 @@ public:
                                      bool preallocate = true) throw
                                      (InitializationFailure, SystemException);
 
-    int registerTimeout(int delay,
+    int registerTimeout(int delayinusec,
                         TimeoutHandler* th,
                         bool ignoreState = false)throw
                         (RegistrationFailure, SystemException);
+
     int registerTimeout(struct timeval& tv,
                         TimeoutHandler* th,
                         bool ignoreState = false)throw
@@ -45,7 +46,7 @@ public:
     void cancelTimeout(const TimeoutHandler * const th)
         throw( CancellationFailure, TimeoutHandlerRunning );
 
-    void waitUntilActive(void);
+
 
     TimeValue triggeringTime(int timerId);
 
@@ -67,6 +68,7 @@ private:
 
 
     virtual void run(void);
+    void waitUntilActive(void);
     int handleTimeout(void);
     void waitForTimeoutEvents(void);
     int dispatchTimeoutEvents(void);
