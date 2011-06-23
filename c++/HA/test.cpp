@@ -11,6 +11,8 @@
 #include <unistd.h>
 #include "glog/logging.h"
 #include "HAThread.h"
+#include "TimerManager.h"
+#include "TimeoutHandler.h"
 
 class testThread : public HAUtils::HAThread {
 public:
@@ -22,11 +24,18 @@ public:
     }
 };
 
+class tmh : public TimeLib::TimeoutHandler {
+    void handleTimeout(int tid) {
+        LOG(INFO)<<"handleTimeout in children class";
+    }
+};
 
 HAUtils::Mutex theMutex;
 using namespace std;
 int main(int argc, char* argv[]) {
     google::InitGoogleLogging(argv[0]);
+    TimeLib::TimerManager* timerMgr = TimeLib::TimerManager::getInstance();
+    tmh tm;
     {HAUtils::MutexHolder mh(theMutex);}
     testThread* a = new testThread();
     testThread* b = new testThread();

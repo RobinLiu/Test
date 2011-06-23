@@ -50,6 +50,7 @@ void HAThread::runWrapper(void * objRef) {
 int HAThread::createThread(pthread_t* pthread_id,
                         void*(*start_routine)(void*),
                         void* arg, int stackSize) {
+    //TODO: check which header file include this macro
     if (stackSize > 0/*PTHREAD_STACK_MIN*/) {
         pthread_attr_t attr;
         int result = 0;

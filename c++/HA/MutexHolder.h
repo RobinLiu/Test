@@ -42,10 +42,10 @@ public:
         }
     }
     virtual ~MutexHolder();
-
-private:
     void Acquire();
     void Release();
+
+private:
 
     HAUtils::Mutex* m_theMutex;
     bool            m_isLocked;
